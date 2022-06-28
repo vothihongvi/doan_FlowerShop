@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Đặt hàng</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="goto-here">
+<div class="py-1 bg-primary">
+    <div class="container">
+        <div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+            <div class="col-lg-12 d-block">
+                <div class="row d-flex">
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+                        <span class="text">+032 451 215 </span>
+                    </div>
+                    <div class="col-md pr-4 d-flex topper align-items-center">
+                        <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+                        <span class="text">contact@flower.vn</span>
+                    </div>
+                    <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right ">
+                        <div style="width: 100%;" >
+                            <form >
+                                <input style="width: 70%;" type="text" placeholder="Tìm kiếm..." name="search">
+                                <input type="submit" value="Tìm kiếm" class="submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="Home.html">FLOWER SHOP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="Home.html" class="nav-link">Trang Chủ</a></li>
+                <li class="nav-item dropdown"><a href="Shop.html" class="nav-link">Cửa Hàng</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Liên Lạc</a></li>
+                <li class="nav-item" id="show-login"><a href="#" class="nav-link">Đăng Nhập</a></li>
+                <li class="nav-item cta cta-colored"><a href="cart.html" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- END nav -->
+
+<!-- begin breadcrumb -->
+<div class="hero-wrap hero-bread" style="background-image: url('Image/baner_auto_x2.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Trang chủ</a></span> - <span><a
+                        href="cart.html">Giỏ hàng</a></span><span>Đặt hàng</span>
+                </p>
+                <h1 class="mb-0 bread">Đặt hàng</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb -->
+
+<!-- begin container main checkout -->
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-7 ftco-animate">
+
+                <!--					begin form-->
+                <form action="#" class="billing-form">
+                    <h3 class="mb-4 billing-heading">Thông tin đặt hàng</h3>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label><input type="checkbox" checked id="question" value="" class="mr-2"> Tôi là người
+                                    nhận hàng</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                  get  thông tin người nhận-->
+                    <div class="row align-items-end info-receiver"
+                         style="border: 1px solid rgba(0,0,0, 0.05); display: none">
+                        <div class="col-md-6">
+                            <div class="col-md-auto"
+                                 style="padding: 12px 0px; color: #82ae46; text-decoration: underline ">
+                                *Thông tin người nhận
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name-receiver">Họ tên<span class="text-danger">*</span></label>
+                                <input type="text" id="name-receiver" class="form-control"
+                                       placeholder="Họ tên khách nhận">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone-receiver">Số điện thoại<span class="text-danger">*</span></label>
+                                <input type="text" id="phone-receiver" class="form-control"
+                                       placeholder="Số điện thoại khách nhận">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="other-connect-receiver">Liên hệ khác (Nếu được)</label>
+                                <input type="text" id="other-connect-receiver" class="form-control"
+                                       placeholder="Các liên hệ khác như facebook, zalo,..">
+                            </div>
+                        </div>
+                    </div>
+                    <!--                   get thông tin khách mua-->
+                    <div class="row align-items-end" style="border: 1px solid rgba(0,0,0, 0.05);margin-top: 16px;">
+                        <div class="col-md-6">
+                            <div class="col-md-12"
+                                 style="padding: 12px 0px; color: #82ae46; text-decoration: underline ">
+                                *Thông tin của tôi
+                            </div>
+                            <div class="form-group">
+                                <label for="name-customer">Họ tên<span class="text-danger">*</span></label>
+                                <input type="text" id="name-customer" class="form-control"
+                                       placeholder="Họ tên khách mua">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email-customer">Email<span class="text-danger">*</span></label>
+                                <input type="email" id="email-customer" class="form-control"
+                                       placeholder="Email khách mua">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone-customer">Số điện thoại<span class="text-danger">*</span></label>
+                                <input type="text" id="phone-customer" class="form-control"
+                                       placeholder="Số điện thoại khách mua">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="other-connect-customer">Liên hệ khác (Nếu được)</label>
+                                <input type="text" id="other-connect-customer" class="form-control"
+                                       placeholder="Các liên hệ khác như facebook, zalo,..">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--                  get  thông tin thêm-->
+                    <div class="row align-items-end" style="border: 1px solid rgba(0,0,0, 0.05); margin-top: 16px">
+                        <div class="col-md-12">
+                            <div class="col-md-12"
+                                 style="padding: 12px 0px; color: #82ae46; text-decoration: underline ">
+                                *Thông tin thêm
+                            </div>
+
+                            <div class="w-100"></div>
+                            <div class="form-group">
+                                <label for="note-staff">Ghi chú thêm cho nhân viên shop</label>
+                                <textarea rows="3" id="note-staff" class="form-control text-left px-3"
+                                          placeholder="Ghi chú những yêu cầu đặc biệt về sản phẩm"></textarea>
+                            </div>
+                            <div class="w-100"></div>
+
+                            <div class="w-100"></div>
+                            <div class="form-group">
+                                <label for="note-shipper">Ghi chú thêm cho người giao hàng</label>
+                                <textarea rows="3" id="note-shipper" class="form-control text-left px-3"
+                                          placeholder="Ghi chú những hướng dẫn đặc biệt cho shipper"></textarea>
+                            </div>
+                            <div class="w-100"></div>
+
+                        </div>
+
+                    </div>
+                </form><!-- END -->
+            </div>
+
+            <!--				begin payment-->
+            <div class="col-xl-5">
+                <div class="row mt-5 pt-3">
+                    <div class="col-md-12 d-flex mb-5">
+                        <div class="cart-detail cart-total p-3 p-md-4">
+                            <h3 class="billing-heading mb-4">Tóm tắt đơn hàng</h3>
+                            <p class="d-flex">
+                                <span>Tổng tiền hàng</span>
+                                <span>900.000đ</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Phí vận chuyển</span>
+                                <span>30.000đ</span>
+                            </p>
+                            <p class="d-flex">
+                                <span>Đã tiết kiệm</span>
+                                <span>25.000đ</span>
+                            </p>
+                            <hr>
+                            <p class="d-flex total-price">
+                                <span>Tổng thanh toán</span>
+                                <span>900.000đ</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="cart-detail p-3 p-md-4">
+                            <h3 class="billing-heading mb-4">Hình thức thanh toán</h3>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="radio">
+                                        <label><input type="radio" checked name="optradio" class="mr-2">Thanh toán khi nhận hàng</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio" class="mr-2">Chuyển khoản ngân
+                                            hàng</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="radio">
+                                        <label><input type="radio" name="optradio" class="mr-2">Ví điện tử</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p><a href="#" class="btn btn-primary py-3 px-4">Đặt hàng</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- .col-md-8 -->
+            <!--				end payment-->
+
+        </div>
+    </div>
+</section> <!-- .section -->
+
+<!--begin connect quickly-->
+<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
+    <div class="container py-4">
+        <div class="row d-flex justify-content-center py-5">
+            <div class="col-md-6">
+                <h2 style="font-size: 22px;" class="mb-0">Tư Vấn Nhanh</h2>
+                <span>Để lại số điện thoại của bạn, chúng tôi sẽ tư vấn ngay!</span>
+            </div>
+            <div class="col-md-6 d-flex align-items-center">
+                <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                        <input type="text" class="form-control" placeholder="Nhập số điện thoại">
+                        <input type="submit" value="Gửi" class="submit px-3">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!--end connect quickly-->
+
+<!--	begin footer-->
+<footer class="ftco-footer ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="mouse">
+                <a href="#" class="mouse-icon">
+                    <div class="mouse-wheel"><span class="ion-ios-arrow-up"></span></div>
+                </a>
+            </div>
+        </div>
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">FlowerShop</h2>
+                    <p>Đem đến cho bạn những bông hoa tươi đẹp nhất</p>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Danh Sách</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">Trang Chủ</a></li>
+                        <li><a href="#" class="py-2 d-block">Cửa Hàng</a></li>
+                        <li><a href="#" class="py-2 d-block">Liên Lạc Với Chúng Tôi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Danh Mục</h2>
+                    <div class="d-flex">
+                        <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                            <li><a href="#" class="py-2 d-block">Hoa Sinh nhật</a></li>
+                            <li><a href="#" class="py-2 d-block">Hoa Chúc mừng</a></li>
+                            <li><a href="#" class="py-2 d-block">Hoa Chia buồn</a></li>
+                            <li><a href="#" class="py-2 d-block">Hoa Cưới</a></li>
+                        </ul>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">Hoa Khai trương</a></li>
+                            <li><a href="#" class="py-2 d-block">Hoa Giáng sinh</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Thông Tin Của Chúng Tôi</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">49A Huỳnh Tịnh Của, Phường 8, Quận 3, Thành Phố Hồ Chí Minh</span>
+                            </li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span
+                                    class="text">+032 451 215</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">contact@flower.vn</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+
+                <p>Cảm Ơn Vì Đã Ghé Thăm Trang Web Của Chúng Tôi, Chúc Bạn Một Ngày Tốt Lành
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--	end footer-->
+
+
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
+
+<!--begin modal login-->
+<div class="modal fade modal-form login-form" >
+    <div class="modal-dialog ">
+        <div class="modal-content" style="border: none">
+            <!--        begin modal-header-->
+            <div style="background-color: #82ae46;">
+                <div class="modal-header" style="border: none">
+                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
+                       style="font-weight: 100;">&times;</a>
+                </div>
+                <div class="text-center" style="padding-bottom: 16px">
+                    <h4 style="text-transform: uppercase;color: white">Đăng nhập</h4>
+                </div>
+            </div>
+            <!--        end modal-header-->
+
+            <!--        begin body modal-->
+            <div class="cart-total modal-body" style="margin: auto; border: none">
+                <form action="#" class="info">
+                    <div class="form-group">
+                        <label for="emailLogin" style="color: #0b0b0b">Email</label>
+                        <input type="email" id="emailLogin" class="form-control text-left px-3"
+                               style="font-size: 0.8rem"
+                               placeholder="Nhập email">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordLogin" style="color: #0b0b0b">Mật khẩu</label>
+                        <input type="password" id="passwordLogin" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               placeholder="Nhập mật khẩu">
+                    </div>
+                </form>
+                <div style="text-align: right">
+                    <a style="cursor: pointer;" class="text-center text-secondary" id="forget-pass">Quên mật khẩu?</a>
+                </div>
+                <div style="text-align: center">
+                    <div style="margin-top: 32px"><a href="index.html" class="btn btn-primary py-3 px-4">Đăng
+                        nhập</a></div>
+                    <div style="margin: 16px 0px"> Bạn chưa có tài khoản? <a style="cursor: pointer"
+                                                                             class="text-center text-primary"
+                                                                             id="sign-up">Đăng ký
+                        ngay!</a></div>
+                </div>
+            </div>
+            <!--        end body modal-->
+        </div>
+    </div>
+</div>
+<!--end modal login-->
+
+<!-- BEGIN MODAL-->
+<!--begin modal forget pass-->
+<div class="modal fade modal-form forget-pass-form" >
+    <div class="modal-dialog">
+        <div class="modal-content" style="border: none">
+            <!--        begin modal-header-->
+            <div style="background-color: #82ae46;">
+                <div class="modal-header" style="border: none">
+                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
+                       style="font-weight: 100;outline: none">&times;</a>
+                </div>
+                <div class="text-center" style="padding-bottom: 16px">
+                    <h4 style="text-transform: uppercase;color: white">Quên mật khẩu</h4>
+                </div>
+            </div>
+            <!--        end modal-header-->
+
+            <!--        begin body modal-->
+            <div class="cart-total modal-body" style="margin: auto; border: none">
+                <p>Để lấy lại mật khẩu vui lòng nhập email đã đăng ký. Sau khi nhận mật khẩu tạm thời, bạn nên đổi lại
+                    mật khẩu mới.</p>
+
+                <form action="#" class="info">
+                    <div class="form-group">
+                        <label for="emailGetPass" style="color: #0b0b0b">Email</label>
+                        <input type="email" id="emailGetPass" class="form-control text-left px-3"
+                               style="font-size: 0.8rem"
+                               placeholder="Nhập email">
+                    </div>
+
+                </form>
+
+                <div style="text-align: center">
+                    <div style="margin-top: 32px"><a href="checkout.html" class="btn btn-primary py-3 px-4">Nhận lại mật
+                        khẩu</a></div>
+                    <div style="margin: 16px 0px"> Đã nhớ mật khẩu? <a style="cursor: pointer"
+                                                                       class="text-center text-primary"
+                                                                       id="login-again">Đăng nhập lại.
+                    </a></div>
+                </div>
+            </div>
+            <!--        end body modal-->
+        </div>
+    </div>
+</div>
+<!--end modal forget pass-->
+
+<!--begin modal sign up-->
+<div class="modal fade modal-form sign-up-form">
+    <div class="modal-dialog modal-open ">
+        <div class="modal-content" style="border: none">
+            <!--        begin modal-header-->
+            <div style="background-color: #82ae46;">
+                <div class="modal-header" style="border: none">
+                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
+                       style="font-weight: 100;">&times;</a>
+                </div>
+                <div class="text-center" style="padding-bottom: 16px">
+                    <h4 style="text-transform: uppercase;color: white">Tạo tài khoản mới</h4>
+                </div>
+            </div>
+            <!--        end modal-header-->
+
+            <!--        begin body modal-->
+            <div class="cart-total modal-body" style="margin: auto; border: none">
+                <form action="#" class="info">
+                    <div class="form-group">
+                        <label for="name-user" class="text-body">Họ tên</label>
+                        <input type="email" id="name-user" class="form-control text-left px-3"
+                               style="font-size: 0.8rem"
+                               placeholder="Nhập họ tên">
+                    </div>
+                    <div class="form-group">
+                        <label for="emailSignip" class="text-body">Email</label>
+                        <input type="email" id="emailSignip" class="form-control text-left px-3"
+                               style="font-size: 0.8rem"
+                               placeholder="Nhập email">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordSignup" class="text-body">Mật khẩu</label>
+                        <input type="password" id="passwordSignup" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               placeholder="Nhập mật khẩu">
+                    </div>
+                    <div class="form-group">
+                        <label for="verifyPass" class="text-body">Nhập lại mật khẩu</label>
+                        <input type="password" id="verifyPass" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               placeholder="Nhập lại mật khẩu">
+                    </div>
+                    <div class="form-group">
+                        <label for="tel" class="text-body">Số điện thoại</label>
+                        <input type="text" id="tel" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               placeholder="Nhập số điện thoại">
+                    </div>
+                </form>
+                <div style="text-align: center">
+                    <div style="margin-top: 32px"><a href="checkout.html" class="btn btn-primary py-3 px-4">Đăng ký</a>
+                    </div>
+                    <div style="margin: 16px 0px"> Bạn đã có tài khoản? <a style="cursor: pointer"
+                                                                           class="text-center text-primary"
+                                                                           id="login-now">Đăng nhập
+                        ngay!</a></div>
+                </div>
+            </div>
+
+            <!--        end body modal-->
+        </div>
+    </div>
+</div>
+<!--end modal sign up-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-migrate-3.0.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.stellar.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/scrollax.min.js"></script>
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="js/google-map.js"></script>
+<script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>
