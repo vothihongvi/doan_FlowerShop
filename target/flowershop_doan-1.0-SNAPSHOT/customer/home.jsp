@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
 <html>
 <head>
@@ -29,20 +29,21 @@
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/icomoon.css">
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<style>
-    .ftco-section {
-        padding: 4em 0;
-        position: relative;
-    }
-    #hoa-sale{
-        float: left;
-        width: 300px;
-        height: 300px;
-        margin: auto;
 
-    }
-</style>
+    <style>
+        .ftco-section {
+            padding: 4em 0;
+            position: relative;
+        }
+
+        #hoa-sale {
+            float: left;
+            width: 300px;
+            height: 300px;
+            margin: auto;
+
+        }
+    </style>
 </head>
 
 <body class="goto-here">
@@ -90,7 +91,7 @@
 
 <%--introduce (giới thiệu dịch vụ)--%>
 <section class="ftco-section">
-    <div class="container" >
+    <div class="container">
         <div class="row no-gutters ftco-services">
             <div class="col-md-3 text-center d-flex align-self-stretch ftco-animate">
                 <div class="media block-6 services mb-md-0 mb-4">
@@ -273,8 +274,7 @@
 <%--Quick consultation (tư vấn nhanh)--%>
 <%@ include file="footer.jsp" %>
 
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
 <script src="assets/js/popper.min.js"></script>
@@ -291,6 +291,25 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="assets/js/google-map.js"></script>
 <script src="assets/js/main.js"></script>
+<%--<script>--%>
+<%--    $("#id").click((event) => {--%>
+<%--        $.ajax({--%>
+<%--            url: "/ltw-flower-shop/signup",--%>
+<%--            type: "post", //send it through get method--%>
+
+<%--            success: function (message) {--%>
+<%--                // var signupform = document.getElementById("signupform");--%>
+<%--                // signupform.innerHTML += message;--%>
+<%--                document.getElementById("error").innerHTML = message;--%>
+<%--                $('.sign-up-form').showModal();--%>
+
+<%--            },--%>
+<%--            error: function (xhr) {--%>
+<%--                console.log("CÓ LỖI RÔIFFFFFFF")--%>
+<%--            }--%>
+<%--        });--%>
+<%--    }--%>
+<%--</script>--%>
 
 </body>
 </html>
