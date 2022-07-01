@@ -7,6 +7,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
@@ -58,6 +59,34 @@ public class UserDao {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public User checkLogin(String phone, String pass){
+        User result = null;
+        String queryString = "SELECT * FROM user INNER JOIN role ON user.roleID = role.id WHERE phone =?";
+        try {
+            PreparedStatement preparedStatement = DBConnect.getInstance().getPrepareStatement(queryString);
+            preparedStatement.setString(1, phone);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                result = new User();
+                result.setName(rs.getString(2));
+                result.setPhone(rs.getString(3));
+                result.setPass(rs.getString(4));
+                result.setCreateAt(rs.getTimestamp(5));
+                result.setRoleID(rs.getInt(6));
+            }
+            if ((result != null && !result.getPhone().equals(phone)) || rs.next()) return null;
+            if (!result.getPass().equals(hashPassword(pass))) return null;
+
+            return result;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
 }

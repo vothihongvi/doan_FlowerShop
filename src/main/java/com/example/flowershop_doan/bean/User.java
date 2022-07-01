@@ -4,23 +4,12 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class User implements Serializable {
-    private int id;
     private String name, phone, pass;
     private Timestamp createAt;
     private int roleID;
 
     public User() {
     }
-
-    public User(int id, String name, String phone, String pass, Timestamp createAt, int roleID) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.pass = pass;
-        this.createAt = createAt;
-        this.roleID = roleID;
-    }
-
     public User(String name, String phone, String pass, Timestamp createAt, int roleID) {
         this.name = name;
         this.phone = phone;
@@ -29,13 +18,6 @@ public class User implements Serializable {
         this.roleID = roleID;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
 
 <!--begin modal login-->
-<div class="modal fade modal-form login-form" >
+<div class="modal fade modal-form login-form">
     <div class="modal-dialog ">
         <div class="modal-content" style="border: none">
             <!--        begin modal-header-->
@@ -19,31 +19,35 @@
 
             <!--        begin body modal-->
             <div class="cart-total modal-body" style="margin: auto; border: none">
-                <form action="#" class="info">
+                <form action="../login" method="post" class="info">
                     <div class="form-group">
-                        <label for="emailLogin" style="color: #0b0b0b">Email</label>
-                        <input type="email" id="emailLogin" class="form-control text-left px-3"
+                        <label for="phone" style="color: #0b0b0b">Số điện thoại</label>
+                        <input type="phone" name="phone" id="phone" class="form-control text-left px-3"
                                style="font-size: 0.8rem"
-                               placeholder="Nhập email">
+                               placeholder="Nhập số điện thoại">
                     </div>
                     <div class="form-group">
                         <label for="passwordLogin" style="color: #0b0b0b">Mật khẩu</label>
-                        <input type="password" id="passwordLogin" style="font-size: 0.8rem"
+                        <input type="password" name="pass" id="passwordLogin" style="font-size: 0.8rem"
                                class="form-control text-left px-3"
                                placeholder="Nhập mật khẩu">
                     </div>
+                    <div style="text-align: right">
+                        <a style="cursor: pointer;" class="text-center text-secondary" id="forget-pass">Quên mật khẩu?</a>
+                    </div>
+                    <div style="text-align: center">
+                        <div style="margin-top: 32px" type="submit">
+                            <button type="submit" class="btn btn-primary py-3 px-4"
+                                    style="margin-top: 32px">Đăng nhập
+                            </button>
+                        </div>
+                        <div style="margin: 16px 0px"> Bạn chưa có tài khoản? <a style="cursor: pointer"
+                                                                                 class="text-center text-primary"
+                                                                                 id="sign-up">Đăng ký
+                            ngay!</a></div>
+                    </div>
                 </form>
-                <div style="text-align: right">
-                    <a style="cursor: pointer;" class="text-center text-secondary" id="forget-pass">Quên mật khẩu?</a>
-                </div>
-                <div style="text-align: center">
-                    <div style="margin-top: 32px"><a href="index.html" class="btn btn-primary py-3 px-4">Đăng
-                        nhập</a></div>
-                    <div style="margin: 16px 0px"> Bạn chưa có tài khoản? <a style="cursor: pointer"
-                                                                             class="text-center text-primary"
-                                                                             id="sign-up">Đăng ký
-                        ngay!</a></div>
-                </div>
+
             </div>
             <!--        end body modal-->
         </div>

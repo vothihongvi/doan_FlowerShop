@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
 
-
-<% String errorMessage = (String) request.getAttribute("error");
-%>
-
 <div>
     <!--begin modal sign up-->
     <div class="modal fade modal-form sign-up-form">

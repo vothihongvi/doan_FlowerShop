@@ -15,4 +15,7 @@ public class UserService {
     public User signup(String name, String phone, String pass){
         return UserDao.getInstance().signup(name, phone, pass);
     }
+    public User checkLogin(String phone, String pass){
+return UserDao.getInstance().checkLogin(phone, pass);
+    }
 }
