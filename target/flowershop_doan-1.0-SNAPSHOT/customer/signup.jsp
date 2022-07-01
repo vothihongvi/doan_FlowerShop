@@ -3,13 +3,6 @@
 
 
 <% String errorMessage = (String) request.getAttribute("error");
-//    String showClass = "";
-//    String style = "";
-//    if (errorMessage != null) {
-//        showClass = "show";
-//        style = "display: block; padding-right: 17px;";
-//        System.out.println(">>>>>>>>>..finallllll");
-//    }
 %>
 
 <div>
@@ -33,13 +26,6 @@
                 <!--        begin body modal-->
                 <div class="cart-total modal-body" style="margin: auto; border: none">
                     <form action="../signup" method="post" class="info">
-                                            <% if (errorMessage != null) {
-                                            %>
-                                            <div class="alert alert-danger" role="alert">
-                                                <%=errorMessage%>
-                                            </div>
-                                            <%}%>
-<%--                            <div class="alert alert-danger" id="error" role="alert"></div>--%>
                         <div class="form-group">
                             <label for="name-user" class="text-body">Họ tên</label>
                             <input type="text" name="name" id="name-user" class="form-control text-left px-3"
@@ -88,7 +74,6 @@
 </div>
 
 
-<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>--%>
 
 
 
