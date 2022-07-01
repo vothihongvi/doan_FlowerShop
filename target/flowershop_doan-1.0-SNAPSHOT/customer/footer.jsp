@@ -81,6 +81,8 @@
                                         class="text">+032 451 215</span></a></li>
                                 <li><a href="#"><span class="icon icon-envelope"></span><span class="text">contact@flower.vn</span></a>
                                 </li>
+                                <li><a href="../logout"><span class="text">Đăng xuất</span></a>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -47,6 +47,8 @@
 </head>
 
 <body class="goto-here">
+<c:set var="auth" value="${sessionScope.auth}"></c:set>
+
 <%--header--%>
 <%@ include file="header.jsp" %>
 
