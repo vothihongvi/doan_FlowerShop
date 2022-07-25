@@ -49,10 +49,10 @@ public class UserDao {
             preparedStatement.setString(2, phone);
             preparedStatement.setString(3, hashPassword(pass));
             preparedStatement.setTimestamp(4, timestamp);
-            preparedStatement.setInt(5, RoleDao.getInstance().getRole("customer"));
+            preparedStatement.setInt(5, RoleDao.getInstance().getRoleCustomer());
 
             if (preparedStatement.executeUpdate() == 1)
-                result = new User(name, phone, pass, timestamp, RoleDao.getInstance().getRole("customer"));
+                result = new User(name, phone, pass, timestamp, RoleDao.getInstance().getRoleCustomer());
             return result;
 
         } catch (SQLException e) {
