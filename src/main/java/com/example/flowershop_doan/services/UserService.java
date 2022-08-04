@@ -18,4 +18,10 @@ public class UserService {
     public User checkLogin(String phone, String pass){
 return UserDao.getInstance().checkLogin(phone, pass);
     }
+    public User checkLoginAdmin(String phone, String pass){
+        return UserDao.getInstance().checkLoginAdmin(phone, pass);
+    }
+
+
+
 }

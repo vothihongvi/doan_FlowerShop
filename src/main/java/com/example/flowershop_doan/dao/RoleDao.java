@@ -40,6 +40,13 @@ public class RoleDao {
         }
         return this.getRole(roleName);
     }
+    public int getRoleAdmin(){
+        String roleName = "admin";
+        if (this.getRole(roleName) == -1){
+            this.setRoleCustomer(roleName);
+        }
+        return this.getRole(roleName);
+    }
 
     public int getRole(String roleName) {
         int result = -1;

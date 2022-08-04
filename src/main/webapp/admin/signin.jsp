@@ -297,9 +297,9 @@
         </div>
 
         <!-- Login Form -->
-        <form action="../admin" method="post">
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Tên đăng nhập">
-            <input type="password" id="password" class="fadeIn third" name="login" placeholder="Mật khẩu">
+        <form action="../admin-login" method="post">
+            <input type="text" id="login" class="fadeIn second" name="phone" placeholder="Tên đăng nhập">
+            <input type="password" id="password" class="fadeIn third" name="pass" placeholder="Mật khẩu">
             <input type="submit" class="fadeIn fourth" value="Đăng nhập">
         </form>
 

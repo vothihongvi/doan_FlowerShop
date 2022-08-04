@@ -20,7 +20,7 @@
                                      alt="Avatar admin"/>
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">Hồng Vi</a>
+                                <a class="js-acc-btn" href="#">${auth.name}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
@@ -34,9 +34,9 @@
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#">Hồng Vi</a>
+                                            <a href="#">${auth.name}</a>
                                         </h5>
-                                        <span class="email">hongvi@gmail.com</span>
+                                        <span class="email">${auth.phone}</span>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__body">
@@ -54,7 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="account-dropdown__footer">
-                                    <a href="#">
+                                    <a href="../admin-logout">
                                         <i class="zmdi zmdi-power"></i>Đăng xuất</a>
                                 </div>
                             </div>
