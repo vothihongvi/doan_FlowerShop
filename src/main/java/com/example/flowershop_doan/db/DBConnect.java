@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class DBConnect {
     private static DBConnect instance;
     private static Connection connection;
-    private static String DB_URL = "jdbc:mysql://localhost:3305/ltw_flower_shop";
+    private static String DB_URL = "jdbc:mysql://localhost:3306/ltw_flower_shop";
     private static String DB_NAME = "root";
-    private static String DB_PASS = "123456";
+    private static String DB_PASS = "";
 
     //private constructor
     private DBConnect() {
@@ -23,10 +23,13 @@ public class DBConnect {
     }
 
     private void setConnection() throws SQLException, ClassNotFoundException {
-        if (connection == null || connection.isClosed()) {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(DB_URL, DB_NAME, DB_PASS);
-        }
+
+            if (connection == null || connection.isClosed()) {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                connection = DriverManager.getConnection(DB_URL, DB_NAME, DB_PASS);
+
+            }
+
     }
 
     public PreparedStatement getPrepareStatement(String queryString) throws SQLException {
@@ -41,7 +44,6 @@ public class DBConnect {
         return connection.prepareStatement(queryString);
 
     }
-
 
 
 
