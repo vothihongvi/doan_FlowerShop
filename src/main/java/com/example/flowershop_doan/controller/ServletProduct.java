@@ -1,5 +1,6 @@
 package com.example.flowershop_doan.controller;
 
+import com.example.flowershop_doan.bean.Category;
 import com.example.flowershop_doan.bean.Product;
 import com.example.flowershop_doan.dao.ProductDao;
 
@@ -17,10 +18,11 @@ public class ServletProduct extends HttpServlet {
         //get data from ProductDao
         ProductDao dao = new ProductDao();
         List<Product> list = dao.getAllProduct();
+//        List<Category> categoryList = dao.getAllCategory();
         //pull data to jsp
         request.setAttribute("listP", list);
-        request.getRequestDispatcher("customer/shop.jsp").forward(request, response);
-        // response.sendRedirect("customer/shop.jsp");
+//        request.setAttribute("listC", categoryList);
+
     }
 
     @Override

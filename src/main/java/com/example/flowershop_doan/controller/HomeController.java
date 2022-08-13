@@ -13,12 +13,8 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ProductDao dao = new ProductDao();
-        List<Product> list = dao.getAllProduct();
-////        //pull data to jsp
-        request.setAttribute("listP", list);
-        request.getRequestDispatcher("customer/home.jsp").forward(request, response);
-//        response.sendRedirect("customer/home.jsp");
+
+       response.sendRedirect("customer/home.jsp");
     }
 
     @Override
