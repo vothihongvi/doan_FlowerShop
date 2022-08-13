@@ -34,6 +34,7 @@
 </head>
 <body class="animsition">
 <div class="page-wrapper">
+    <c:set var="authAdmin" value="${sessionScope.authAdmin}"></c:set>
 
     <%@ include file="menu.jsp" %>
 
