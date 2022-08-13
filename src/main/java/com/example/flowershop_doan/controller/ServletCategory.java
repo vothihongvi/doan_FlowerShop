@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ServletCategory", value = "/customer/category")
+@WebServlet(name = "ServletCategory", value = "/category")
 public class ServletCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,8 +21,7 @@ public class ServletCategory extends HttpServlet {
         //        request.setAttribute("listC", categoryList);
         request.setAttribute("listP", productList);
         request.setAttribute("tagC", cateID);
-        request.getRequestDispatcher("shop.jsp").forward(request, response);
-      //  response.sendRedirect("shop.jsp");
+
     }
 
     @Override

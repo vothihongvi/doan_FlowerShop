@@ -6,6 +6,7 @@
 <c:set var="myProducts" value="${requestScope.listP}"/>
 
 
+
 <%--dòng này chưa sài vì đang sài java beans--%>
 <%--<c:import url="/category"/>--%>
 <%--<c:set var="myCategory" value="${requestScope.listP}"/>--%>
@@ -16,7 +17,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12 mb-5 text-center">
                 <ul class="product-category">
-                    <li><a href="#" class="active">All</a></li>
+                    <li><a href="shop.jsp" class="active">All</a></li>
                     <%--BẮT ĐẦU JAVA BEANS--%>
                     <c:forEach items="${a.allCategory}" var="ca">
                         <li><a href="category?cid=${ca.id}">${ca.name}</a></li>
@@ -89,7 +90,7 @@
             <c:forEach items="${myProducts}" var="o">
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product">
-                        <a href="detailproduct.jsp" class="img-prod"><img class="img-fluid"
+                        <a href="detail?pid=${o.id}" class="img-prod"><img class="img-fluid"
                             <%--                                                                          hình ảnh sp--%>
                                                                           src="${o.image}"
                                                                           alt="Colorlib Template">

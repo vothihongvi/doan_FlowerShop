@@ -22,7 +22,7 @@ public class ServletProduct extends HttpServlet {
         //pull data to jsp
         request.setAttribute("listP", list);
 //        request.setAttribute("listC", categoryList);
-
+response.sendRedirect("customer/shop.jsp");
     }
 
     @Override
