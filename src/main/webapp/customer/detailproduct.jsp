@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
 
+<%--<c:import url="/detail"/>--%>
+<%--<c:set var="detailProduct" value="${requestScope.detail}"/>--%>
 <html>
 <head>
     <title>Liên lạc</title>
@@ -40,60 +42,63 @@
 
 <!--CHI TIẾT SẢN PHẨM-->
 <section class="ftco-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                   class="image-popup"><img
-                        src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                        class="img-fluid" alt="Colorlib Template"></a>
-            </div>
-            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                <h3>HOA VIOLET CHÂU PHI</h3>
-                <div class="rating d-flex">
-                    <p class="text-left">
-                        <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Đã bán </span></a>
-                    </p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5 ftco-animate">
+<%--                    https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg--%>
+                    <a href="#"
+                       class="image-popup"><img
+                            src="${detail.image}"
+                            class="img-fluid" alt="Colorlib Template"></a>
                 </div>
-                <p class="price"><span>180.000đ</span></p>
-                <p>Sản phẩm bao gồm:<br>
-                    + Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)<br>
-                    + Chậu thông điệp + trang trí: 1 bộ <br>
-                    Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình <br>
+                <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                    <h3>${detail.name}</h3>
+                    <div class="rating d-flex">
+                        <p class="text-left">
+                            <a href="#" class="mr-2" style="color: #000;">${detail.status} <span style="color: #bbb;">Đã bán </span></a>
+                        </p>
+                    </div>
+                    <p class="price"><span>${detail.priceSell}đ</span></p>
+                    <p>${detail.description}<br>
+<%--                        + Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)<br>--%>
+<%--                        + Chậu thông điệp + trang trí: 1 bộ <br>--%>
+<%--                        Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình <br>--%>
 
-                </p>
-                <div class="row mt-4">
+                    </p>
+                    <div class="row mt-4">
 
-                    <div class="w-100"></div>
-                    <div class="input-group col-md-6 d-flex mb-3">
+                        <div class="w-100"></div>
+                        <div class="input-group col-md-6 d-flex mb-3">
 	             	<span class="input-group-btn mr-2">
 	                	<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
 	                   <i class="ion-ios-remove"></i>
 	                	</button>
 	            		</span>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
-                               min="1" max="100">
-                        <span class="input-group-btn ml-2">
+                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
+                                   min="1" max="100">
+                            <span class="input-group-btn ml-2">
 	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
 	                     <i class="ion-ios-add"></i>
 	                 </button>
 	             	</span>
+                        </div>
+                        <div class="w-100"></div>
+                        <div class="col-md-12">
+                            <p style="color: #000;">Tình trạng: ${detail.status}</p>
+                        </div>
                     </div>
-                    <div class="w-100"></div>
-                    <div class="col-md-12">
-                        <p style="color: #000;">Tình trạng: còn hàng</p>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <p><a href="#" class="btn btn-outline-success  py-3 px-5 mr-4">Thêm
-                        Vào Giỏ</a></p>
-                    <p><a href="cart.jsp" class="btn  btn-success py-3 px-5 "
-                    >Mua Ngay</a></p>
+                    <div class="d-flex">
+                        <p><a href="#" class="btn btn-outline-success  py-3 px-5 mr-4">Thêm
+                            Vào Giỏ</a></p>
+                        <p><a href="cart.jsp" class="btn  btn-success py-3 px-5 "
+                        >Mua Ngay</a></p>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
 </section>
 
 <%--SẢN PHẨM GỢI Ý--%>
