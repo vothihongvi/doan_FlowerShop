@@ -113,6 +113,29 @@ public class ProductDao {
 
     }
 
+    public int getNumberPage() {
+        String query = "SELECT COUNT(*) FROM product  ";
+        try {
+            ps = DBConnect.getInstance().getPrepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                int total = rs.getInt(1);
+                int countPage = 0;
+                countPage = total / 12;
+                if (total % 5 != 0){
+                    countPage++;
+
+                }
+                return countPage;
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
     public static void main(String[] args) {
         ProductDao dao = new ProductDao();
         List<Product> list = dao.getAllProductByCategory("2");
@@ -123,5 +146,6 @@ public class ProductDao {
         for (Category c : list1) {
             System.out.println(c.toString());
         }
+        System.out.println("số trang là"+ dao.getNumberPage());
     }
 }

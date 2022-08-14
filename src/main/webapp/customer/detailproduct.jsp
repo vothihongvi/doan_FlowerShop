@@ -5,7 +5,7 @@
 <%--<c:set var="detailProduct" value="${requestScope.detail}"/>--%>
 <html>
 <head>
-    <title>Liên lạc</title>
+    <title>Chi tiết</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
