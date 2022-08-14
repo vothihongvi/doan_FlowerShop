@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
-<jsp:useBean id="z" class="com.example.flowershop_doan.bean.Product" scope="request"></jsp:useBean>
 
 <%--<c:import url="/detail"/>--%>
 <%--<c:set var="detailProduct" value="${requestScope.detail}"/>--%>
 <html>
 <head>
-    <title>Liên lạc</title>
+    <title>Chi tiết</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -57,7 +56,7 @@
                     <h3>${detail.name}</h3>
                     <div class="rating d-flex">
                         <p class="text-left">
-                            <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Đã bán </span></a>
+                            <a href="#" class="mr-2" style="color: #000;">${detail.status} <span style="color: #bbb;">Đã bán </span></a>
                         </p>
                     </div>
                     <p class="price"><span>${detail.priceSell}đ</span></p>
