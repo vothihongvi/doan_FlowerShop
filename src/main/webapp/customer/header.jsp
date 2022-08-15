@@ -33,7 +33,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container">
-<a class="navbar-brand" href="home.jsp">FLOWER SHOP</a>
+<a class="navbar-brand" href="<%=request.getContextPath()%>/home">FLOWER SHOP</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="oi oi-menu"></span> Menu
@@ -41,8 +41,8 @@
 
 <div class="collapse navbar-collapse" id="ftco-nav">
 <ul class="navbar-nav ml-auto">
-<li class="nav-item active"><a href="home.jsp" class="nav-link">Trang Chủ</a></li>
-<li class="nav-item dropdown"><a href="shop.jsp" class="nav-link">Cửa Hàng</a></li>
+<li class="nav-item active"><a href="<%=request.getContextPath()%>/home" class="nav-link">Trang Chủ</a></li>
+<li class="nav-item dropdown"><a href="<%=request.getContextPath()%>/shop" class="nav-link">Cửa Hàng</a></li>
 <li class="nav-item"><a href="contact.jsp" class="nav-link">Liên Lạc</a></li>
 
 

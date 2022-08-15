@@ -14,11 +14,9 @@ public class Product implements Serializable {
     private int status;
     private Date createdAt;
     private Date updatedAt;
+    private int categoryId;
 
-    public Product() {
-    }
-
-    public Product(int id, String name, String image, int priceOld, int priceSell, String description, int status, Date createdAt, Date updatedAt) {
+    public Product(int id, String name, String image, int priceOld, int priceSell, String description, int status, Date createdAt, Date updatedAt, int categoryId) {
         this.id = id;
         this.name = name;
         this.image = image;
@@ -28,6 +26,18 @@ public class Product implements Serializable {
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.categoryId = categoryId;
+    }
+
+    public Product() {
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public int getId() {

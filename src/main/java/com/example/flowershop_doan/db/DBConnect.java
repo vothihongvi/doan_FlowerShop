@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class DBConnect {
     private static DBConnect instance;
     private static Connection connection;
-    private static String DB_URL = "jdbc:mysql://localhost:3306/ltw_flower_shop";
+    private static String DB_URL = "jdbc:mysql://localhost:3305/ltw_flower_shop";
     private static String DB_NAME = "root";
-    private static String DB_PASS = "";
+    private static String DB_PASS = "123456";
 
     //private constructor
     private DBConnect() {

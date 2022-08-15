@@ -1,5 +1,10 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.flowershop_doan.bean.Product" %>
+<%@ page import="com.example.flowershop_doan.dao.ProductDao" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
+<jsp:useBean id="a" class="com.example.flowershop_doan.dao.ProductDao" scope="request"></jsp:useBean>
 <html>
 <head>
     <title>Trang chủ</title>
@@ -29,6 +34,8 @@
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/icomoon.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/dist/pagination.css">
+
 
     <style>
         .ftco-section {
@@ -153,13 +160,83 @@
         <div class="row justify-content-center mb-3 pb-3">
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <span class="subheading">Sản Phẩm Nổi Bật</span>
-                <h2 class="mb-4">Sản Phẩm Của Chúng Tôi</h2>
+                <h2 class="mb-4">Tất Cả Sản Phẩm Của Chúng Tôi</h2>
                 <p>Hoa luôn làm cho mọi người tốt hơn, hạnh phúc hơn, và hữu ích hơn. Chúng là ánh nắng mặt trời, thức
                     ăn và thuốc cho tâm hồn</p>
             </div>
         </div>
     </div>
-    <%@ include file="products.jsp" %>
+    <%--    <%@ include file="products.jsp" %>--%>
+    <section class="ftco-section">
+        <div class="container">
+
+            <div class="row">
+                <%--            BẮT ĐẦU USEBEAN--%>
+
+                    <%
+                        List<Product> list = (ArrayList<Product>) request.getAttribute("listPage");
+                        String status = "";
+
+                        for (Product p : list) {
+                            status = (p.getStatus() == 0) ? "Hết hàng" : "Còn hàng";
+
+                    %>
+                    <div class="col-md-6 col-lg-3 ftco-animate">
+                        <div class="product">
+                            <a href="<%=request.getContextPath()%>/detail?pid=<%=p.getId()%>" class="img-prod"><img class="img-fluid"
+                            <%--                                                                          hình ảnh sp--%>
+                                                                                      src="<%=p.getImage()%>"
+                                                                                      alt="Colorlib Template">
+                                <span class="status"><%=status%></span>
+                                <div class="overlay"></div>
+                            </a>
+                            <div class="text py-3 pb-4 px-3 text-center">
+                                <%--                            TÊN SP--%>
+                                <h3><a href="#"><%=p.getName()%>
+                                </a></h3>
+                                <div class="d-flex">
+                                    <div class="pricing">
+                                        <p class="price"><span class="mr-2 price-dc"><%=p.getPriceOld()%></span><span
+                                                class="price-sale"><%=p.getPriceSell()%></span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!--                        phần 3 icon nổi lên khi hoover vào sản phẩm-->
+                                <div class="bottom-area d-flex px-3">
+                                    <div class="m-auto d-flex">
+                                        <a href="detailproduct.jsp"
+                                           class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                            <span><i class="ion-ios-menu"></i></span>
+                                        </a>
+                                        <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                            <span><i class="ion-ios-cart"></i></span>
+                                        </a>
+                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                            <span><i class="ion-ios-heart"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }
+                    %>
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div  class="block-27">
+                        <ul>
+                            <c:forEach begin="1" end="${a.getNumberPage(8)}" var="i">
+                                <li><a href="<%=request.getContextPath()%>/home?page=${i}">${i}</a></li>
+                            </c:forEach>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </section>
 
 <%--advertise (quảng cáo khuyến mãi)--%>
@@ -293,25 +370,12 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="assets/js/google-map.js"></script>
 <script src="assets/js/main.js"></script>
-<%--<script>--%>
-<%--    $("#id").click((event) => {--%>
-<%--        $.ajax({--%>
-<%--            url: "/ltw-flower-shop/signup",--%>
-<%--            type: "post", //send it through get method--%>
+<script src="https://pagination.js.org/dist/2.1.5/pagination.js"></script>
 
-<%--            success: function (message) {--%>
-<%--                // var signupform = document.getElementById("signupform");--%>
-<%--                // signupform.innerHTML += message;--%>
-<%--                document.getElementById("error").innerHTML = message;--%>
-<%--                $('.sign-up-form').showModal();--%>
+<script type="text/javascript">
+    $('#page').Pa
+</script>
 
-<%--            },--%>
-<%--            error: function (xhr) {--%>
-<%--                console.log("CÓ LỖI RÔIFFFFFFF")--%>
-<%--            }--%>
-<%--        });--%>
-<%--    }--%>
-<%--</script>--%>
 
 </body>
 </html>

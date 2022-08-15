@@ -13,8 +13,18 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int pageIndex =1;
+        String getPageIndex = request.getParameter("page");
+        if (getPageIndex != null){
+            pageIndex = Integer.parseInt(getPageIndex);
+        }
 
-       response.sendRedirect("customer/home.jsp");
+        List<Product> list = ProductDao.getInstance().getProductByPaging(pageIndex, 8);
+        request.setAttribute("listPage", list);
+        request.getRequestDispatcher("/customer/home.jsp").forward(request, response);
+
+//response.sendRedirect(request.getContextPath() + "/paging");
+//       response.sendRedirect("/paging");
     }
 
     @Override

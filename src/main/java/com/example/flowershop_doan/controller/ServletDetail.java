@@ -7,16 +7,20 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "ServletDetail", value = "/customer/detail")
+@WebServlet(name = "ServletDetail", value = "/detail")
 public class ServletDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("pid");
-        ProductDao dao = new ProductDao();
-        Product product = dao.getAllProductByProductID(id);
-        request.setAttribute("detail", product);
-        request.getRequestDispatcher("detailproduct.jsp").forward(request, response);
+        int pid = (int) Integer.parseInt(request.getParameter("pid"));
+
+
+        Product p = ProductDao.getInstance().getAllProductByProductID(pid);
+        String status = (p.getStatus() == 0) ? "Hết hàng": "Còn hàng";
+        request.setAttribute("product", p);
+        request.setAttribute("status", status);
+        request.getRequestDispatcher("/customer/detailproduct.jsp").forward(request, response);
     }
 
     @Override

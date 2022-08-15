@@ -23,8 +23,8 @@
                 <div class="cart-total modal-body" style="margin: auto; border: none">
                     <form action="../signup" method="post" class="info">
                         <div class="form-group">
-                            <label for="name-user" class="text-body">Họ tên</label>
-                            <input type="text" name="name" id="name-user" class="form-control text-left px-3"
+                            <label for="name" class="text-body">Họ tên</label>
+                            <input type="text" name="name" id="name" class="form-control text-left px-3"
                                    style="font-size: 0.8rem"
                                    placeholder="Nhập họ tên">
                         </div>

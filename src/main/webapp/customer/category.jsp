@@ -1,60 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
+<jsp:useBean id="b" class="com.example.flowershop_doan.dao.ProductDao" scope="request"></jsp:useBean>
 
-   <span>
-       <section class="ftco-section ftco-category ftco-no-pt">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="row">
-
-                        <div class="col-md-6">
-                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                 style="background-image: url(assets/Image/hoasinhnhat.jpg);">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Hoa Sinh Nhật</a></h2>
-                                </div>
-                            </div>
-                            <div class="category-wrap ftco-animate img d-flex align-items-end"
-                                 style="background-image: url(assets/Image/hoachiabuon.jpg);">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Hoa Chia Buồn</a></h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                                 style="background-image: url(assets/Image/hoacuoil.jpg);">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Hoa Cưới</a></h2>
-                                </div>
-                            </div>
-                            <div class="category-wrap ftco-animate img d-flex align-items-end"
-                                 style="background-image: url(assets/Image/hoachucmung.jpg);">
-                                <div class="text px-3 py-1">
-                                    <h2 class="mb-0"><a href="#">Hoa Chúc Mừng</a></h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section class="ftco-section ftco-category ftco-no-pt">
+    <div class="container">
+        <div class="row">
+            <c:forEach items="${b.allCategory}" var="ca">
 
                 <div class="col-md-4">
-                    <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
-                         style="background-image: url(assets/Image/hoakhaitruong.jpg);">
-                        <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Hoa Khai Trương</a></h2>
-                        </div>
-                    </div>
-                    <div class="category-wrap ftco-animate img d-flex align-items-end"
-                         style="background-image: url(assets/Image/hoatinhyeu.jpg);">
-                        <div class="text px-3 py-1">
-                            <h2 class="mb-0"><a href="#">Hoa Tình Yêu</a></h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <a href="<%=request.getContextPath()%>/shop?cid=${ca.id}">
 
-</span>
+                        <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
+                             style="background-image: url(${ca.image});">
+                            <div class="text px-3 py-1">
+                                <h2 class="mb-0 text-white">${ca.name}</h2>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+            </c:forEach>
+
+        </div>
+    </div>
+</section>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
-
+<%@ page import="com.example.flowershop_doan.bean.Product" %>
+<%@ page import="com.example.flowershop_doan.dao.ProductDao" %>
 <%--<c:import url="/detail"/>--%>
 <%--<c:set var="detailProduct" value="${requestScope.detail}"/>--%>
 <html>
@@ -42,25 +43,30 @@
 
 <!--CHI TIẾT SẢN PHẨM-->
 <section class="ftco-section">
+    <%
+       Product p = (Product) request.getAttribute("product");
+       String status = (String) request.getAttribute("status");
 
+    %>
         <div class="container">
+
             <div class="row">
                 <div class="col-lg-6 mb-5 ftco-animate">
 <%--                    https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg--%>
                     <a href="#"
                        class="image-popup"><img
-                            src="${detail.image}"
+                            src="<%=p.getImage()%>"
                             class="img-fluid" alt="Colorlib Template"></a>
                 </div>
                 <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                    <h3>${detail.name}</h3>
+                    <h3><%=p.getName()%></h3>
                     <div class="rating d-flex">
                         <p class="text-left">
-                            <a href="#" class="mr-2" style="color: #000;">${detail.status} <span style="color: #bbb;">Đã bán </span></a>
+                            <a href="#" class="mr-2" style="color: #000;"><%=p.getStatus()%> <span style="color: #bbb;">Đã bán </span></a>
                         </p>
                     </div>
-                    <p class="price"><span>${detail.priceSell}đ</span></p>
-                    <p>${detail.description}<br>
+                    <p class="price"><span><%=p.getPriceSell()%>đ</span></p>
+                    <p><%=p.getDescription()%><br>
 <%--                        + Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)<br>--%>
 <%--                        + Chậu thông điệp + trang trí: 1 bộ <br>--%>
 <%--                        Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình <br>--%>
@@ -85,7 +91,7 @@
                         </div>
                         <div class="w-100"></div>
                         <div class="col-md-12">
-                            <p style="color: #000;">Tình trạng: ${detail.status}</p>
+                            <p style="color: #000;">Tình trạng: <%=status%></p>
                         </div>
                     </div>
                     <div class="d-flex">
