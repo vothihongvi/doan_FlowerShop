@@ -291,6 +291,268 @@
 
 </div>
 
+<!--begin modal add item-->
+<div class="modal fade modal-form" id="add-form">
+    <div class="modal-dialog ">
+        <div class="modal-content" style="border: none">
+            <!--        begin modal-header-->
+            <div style="background-color: #82ae46;">
+                <div class="modal-header" style="border: none">
+                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
+                       style="font-weight: 100;">&times;</a>
+                </div>
+                <div class="text-center" style="padding-bottom: 16px">
+                    <h4 style="text-transform: uppercase;color: white">Thêm sản phẩm</h4>
+                </div>
+            </div>
+            <!--        end modal-header-->
+
+            <!--        begin body modal-->
+            <div class="cart-total modal-body" style="margin: auto; border: none">
+                <div class="form-group">
+                    <label style="color: #0b0b0b">Thêm ID</label>
+                    <input type="text" id="id-add" style="font-size: 0.8rem"
+                           class="form-control text-left px-3"
+                           placeholder="Nhập ID">
+                </div>
+                <form action="#" class="info">
+
+                    <div class="form-group">
+                        <label style="color: #0b0b0b; float: left">Thêm hình ảnh</label>
+                        <!--                        <textarea class="form-control" id="message-text"></textarea>-->
+                        <input type="image" id="img-add" src="img/add.jpg"
+                               style=" width: 100px;height: 100px; float: left"
+                        >
+                        <input type="file" class="form-control-file" id="hinhAnh" value="Image" accept="image/*">
+                        <!--                        <hr>-->
+                        <!--                        <label for="tenDanhMuc" class="col-form-label">Thay tên :</label>-->
+
+
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Thêm tên sản phẩm</label>
+                        <input type="text" id="name-add" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               placeholder="Nhập tên sản phẩm">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Thêm giá gốc</label>
+                        <input type="text" id="price-org-add" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               placeholder="Nhập giá gốc">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Thêm giá bán</label>
+                        <input type="text" id="price-sell-add" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               placeholder="Nhập giá bán">
+                    </div>
+                    <div class="form-group">
+                        <form action="/action_page.php">
+                            <label> Chọn danh mục </label>
+                            <select name="danhmuc" id="dm">
+                                <option value="dm">Chọn danh mục</option>
+                                <option value="hsn">Hoa sinh nhật</option>
+                                <option value="hcb">Hoa chia buồn</option>
+                                <option value="hc">Hoa cưới</option>
+                                <option value="hcm">Hoa chúc mừng</option>
+                                <option value="hkt">Hoa khai trương</option>
+                                <option value="hty">Hoa tình yêu</option>
+                            </select>
+                        </form>
+
+                    </div>
+                    <div class="form-group">
+                        <form action="/action_page.php">
+                            <label> Thêm Trạng thái </label>
+                            <select name="stt" id="stt-add">
+                                <option value="ctt">Chọn trạng thái</option>
+                                <option value="ch">Còn hàng</option>
+                                <option value="hh">Hết hàng</option>
+
+                            </select>
+                        </form>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Thêm mô tả</label>
+                        <textarea type="text" id="mota-add" style="font-size: 0.8rem;text-align: left "
+                                  class="form-control text-left px-3"
+                                  rows="4">
+                            </textarea>
+
+                    </div>
+                </form>
+
+                <div style="text-align: center">
+                    <div style="margin-top: 32px"><a href="index.html" class="btn btn-primary py-3 px-4">Thêm</a></div>
+
+                </div>
+                <!--        end body modal-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--end modal add item-->
+
+<!--begin modal edit item-->
+<div class="modal fade modal-form" id="form-edit">
+    <div class="modal-dialog ">
+        <div class="modal-content" style="border: none">
+            <!--        begin modal-header-->
+            <div style="background-color: #82ae46;">
+                <div class="modal-header" style="border: none">
+                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
+                       style="font-weight: 100;">&times;</a>
+                </div>
+                <div class="text-center" style="padding-bottom: 16px">
+                    <h4 style="text-transform: uppercase;color: white">Chỉnh sửa sản phẩm</h4>
+                </div>
+            </div>
+            <!--        end modal-header-->
+
+            <!--        begin body modal-->
+            <div class="cart-total modal-body" style="margin: auto; border: none">
+
+                <form action="#" class="info">
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Hình ảnh</label>
+                        <br>
+                        <input type="image" id="img-edit"
+                               src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
+                               style=" width: 100px;height: 100px;"
+                        >
+                        <input type="file" class="form-control-file" id="hinhAnh-edit" value="Image" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Tên sản phẩm</label>
+                        <input type="text" id="name-edit" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               value="Hoa Violet châu Phi">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Giá gốc</label>
+                        <input type="text" id="price-org-edit" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               value="600.00đ">
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Giá bán</label>
+                        <input type="text" id="price-sell-edit" style="font-size: 0.8rem"
+                               class="form-control text-left px-3"
+                               value="500.00đ">
+                    </div>
+                    <div class="form-group">
+                        <form action="/action_page.php">
+                            <label> Chọn danh mục </label>
+                            <select name="danhmuc" id="dm-edit">
+                                <option value="hsn">Hoa sinh nhật</option>
+                                <option value="hcb">Hoa chia buồn</option>
+                                <option value="hc">Hoa cưới</option>
+                                <option value="hcm">Hoa chúc mừng</option>
+                                <option value="hkt">Hoa khai trương</option>
+                                <option value="hty">Hoa tình yêu</option>
+                            </select>
+                        </form>
+
+                    </div>
+                    <div class="form-group">
+                        <form action="/action_page.php">
+                            <label> Trạng thái </label>
+                            <select name="stt" id="stt-edit">
+                                <option value="ctt">Chọn trạng thái</option>
+                                <option value="ch">Còn hàng</option>
+                                <option value="hh">Hết hàng</option>
+
+                            </select>
+                        </form>
+
+                    </div>
+                    <div class="form-group">
+                        <label style="color: #0b0b0b">Mô tả</label>
+
+                        <textarea type="text" id="mota-edit" style="font-size: 0.8rem;text-align: left "
+                                  class="form-control text-left px-3"
+                                  rows="4">Sản phẩm bao gồm:
+    + Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)
+   + Chậu thông điệp + trang trí: 1 bộ
+   Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình
+                            </textarea>
+
+                    </div>
+                </form>
+
+                <div style="text-align: center">
+                    <div style="margin-top: 32px"><a href="index.html" class="btn btn-primary py-3 px-4">Lưu</a></div>
+
+                </div>
+                <!--        end body modal-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--begin modal edit item-->
+<div class="modal fade modal-form" id="form-detail">
+    <div class="modal-dialog ">
+        <div class="modal-content" style="border: none">
+            <!--        begin modal-header-->
+            <div style="background-color: #82ae46;">
+                <div class="modal-header" style="border: none">
+                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
+                       style="font-weight: 100;">&times;</a>
+                </div>
+                <div class="text-center" style="padding-bottom: 16px">
+                    <h4 style="text-transform: uppercase;color: white">Mô tả sản phẩm</h4>
+                </div>
+            </div>
+            <!--        end modal-header-->
+
+            <!--        begin body modal-->
+            <div class="cart-total modal-body" style="margin: auto; border: none">
+                <div class="form-group">
+                    <label style="color: #0b0b0b"> Chi tiết sản phẩm</label>
+                    <div type="text" id="detail" style="font-size: 0.8rem;"
+                         class="form-control text-left px-3">
+                        <br>Sản phẩm bao gồm:
+                        <br>+ Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)
+                        <br>+ Chậu thông điệp + trang trí: 1 bộ
+                        <br>Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình
+
+                    </div>
+
+                    <!--        end body modal-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Begin modal xóa sản phẩm-->
+<div class="modal fade modal-form" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Xóa Sản Phẩm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span> Bạn có chắc muốn xóa sản phẩm này!</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End modal xóa sản phẩm///////-->
+
+
+
 <!-- Jquery JS-->
 <script src="assets/vendor/jquery-3.2.1.min.js"></script>
 <!-- Bootstrap JS-->
@@ -314,6 +576,43 @@
 
 <!-- Main JS-->
 <script src="assets/js/main.js"></script>
+<script>
+    $(document).ready(function () {
+        /* begin modals operation*/
+        var addForm = $('#add-form');
+        var editForm = $('#form-edit');
+        var detailForm = $('#form-detail');
 
+        //modal-scrollable
+        $('body').on('shown.bs.modal', function () {
+            if ($('.modal-form')) {
+                $('body').addClass('modal-open');
+            }
+        });
+        // show form addForm
+        $('#show-add').click(function () {
+            addForm.modal('show');
+        })
+        // show form editForm
+        $('#show-edit').click(function () {
+            editForm.modal('show');
+        })
+        // show form detailForm
+        $('#show-detail').click(function () {
+            detailForm.modal('show');
+        })
+        /* end modals operation*/
+    });
+
+    $('#exampleModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>
 </body>
 </html>

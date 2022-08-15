@@ -11,7 +11,7 @@ public class DashboardController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //set session
         HttpSession session = request.getSession();
-        if (session.isNew()){
+        if (session.getAttribute("authAdmin") == null){
             response.sendRedirect("admin/signin.jsp");
         }
         else {

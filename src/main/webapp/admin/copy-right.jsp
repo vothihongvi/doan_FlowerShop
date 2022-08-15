@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="copyright">
             <p>Tự hào Flower Shop - luôn tận tâm vì khách hàng. Trang chính <a
-                    href="https://colorlib.com">FlowerShop</a>.</p>
+                    href="../home">FlowerShop</a>.</p>
         </div>
     </div>
 </div>

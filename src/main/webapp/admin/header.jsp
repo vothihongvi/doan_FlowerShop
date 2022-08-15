@@ -20,7 +20,7 @@
                                      alt="Avatar admin"/>
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">${auth.name}</a>
+                                <a class="js-acc-btn" href="#">${authAdmin.name}</a>
                             </div>
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
@@ -34,9 +34,9 @@
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
-                                            <a href="#">${auth.name}</a>
+                                            <a href="#">${authAdmin.name}</a>
                                         </h5>
-                                        <span class="email">${auth.phone}</span>
+                                        <span class="email">${authAdmin.phone}</span>
                                     </div>
                                 </div>
                                 <div class="account-dropdown__body">

@@ -24,7 +24,7 @@ public class AdminSignInController extends HttpServlet {
         if (user != null) {
             //set session
             HttpSession session = request.getSession();
-            session.setAttribute("auth", user);
+            session.setAttribute("authAdmin", user);
             response.sendRedirect("admin");
         } else {
             response.getWriter().println("Day khong phai tai khoan cua admin");
