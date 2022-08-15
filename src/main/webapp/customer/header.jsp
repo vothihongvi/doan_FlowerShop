@@ -43,7 +43,7 @@
 <ul class="navbar-nav ml-auto">
 <li class="nav-item active"><a href="<%=request.getContextPath()%>/home" class="nav-link">Trang Chủ</a></li>
 <li class="nav-item dropdown"><a href="<%=request.getContextPath()%>/shop" class="nav-link">Cửa Hàng</a></li>
-<li class="nav-item"><a href="contact.jsp" class="nav-link">Liên Lạc</a></li>
+<li class="nav-item"><a href="<%=request.getContextPath()%>/customer/contact.jsp" class="nav-link">Liên Lạc</a></li>
 
 
 <c:if test="${auth == null}">
