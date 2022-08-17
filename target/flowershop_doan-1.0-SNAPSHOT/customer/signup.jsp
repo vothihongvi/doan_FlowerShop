@@ -21,7 +21,7 @@
 
                 <!--        begin body modal-->
                 <div class="cart-total modal-body" style="margin: auto; border: none">
-                    <form action="../signup" method="post" class="info">
+                    <form action="<%=request.getContextPath()%>/signup" method="post" class="info">
                         <div class="form-group">
                             <label for="name" class="text-body">Họ tên</label>
                             <input type="text" name="name" id="name" class="form-control text-left px-3"
@@ -46,9 +46,8 @@
                                    class="form-control text-left px-3"
                                    placeholder="Nhập lại mật khẩu">
                         </div>
-
                         <div style="text-align: center" id="signup">
-                            <button  type="submit" class="btn btn-primary py-3 px-4"
+                            <button type="submit" class="btn btn-primary py-3 px-4"
                                     style="margin-top: 32px">Đăng
                                 ký
                             </button>

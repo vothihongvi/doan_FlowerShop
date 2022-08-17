@@ -1,5 +1,6 @@
 package com.example.flowershop_doan.controller;
 
+import com.example.flowershop_doan.bean.Cart;
 import com.example.flowershop_doan.bean.User;
 import com.example.flowershop_doan.services.UserService;
 
@@ -31,14 +32,34 @@ public class SignUpController extends HttpServlet {
         String phone = req.getParameter("phone");
         String pass = req.getParameter("pass");
         String verifyPass = req.getParameter("verify");
+        String error = "";
         if (validateForm(name, phone, pass, verifyPass)) {
             User user = UserService.getInstance().signup(name, phone, pass);
-            HttpSession session = req.getSession();
-            session.setAttribute("auth", user);
-            resp.sendRedirect("home");
+            if (user == null) {
+                error = "Số điện thoại đã được sử dụng. Vui lòng sử dụng số điện thoại khác để đăng ký";
+                req.setAttribute("error", error);
+                req.getRequestDispatcher("/customer/home.jsp").forward(req, resp);
+            } else {
+                HttpSession session = req.getSession();
+
+                Cart cart = null;
+//                HttpSession session = request.getSession();
+                if (session.getAttribute("cart") == null) {
+                    cart = new Cart();
+                    session.setAttribute("cart", cart);
+                } else {
+                    cart = (Cart) session.getAttribute("cart");
+                }
+
+                session.setAttribute("auth", user);
+                resp.sendRedirect("home");
+            }
+
         } else {
-            resp.setContentType("text/html");
-            resp.getWriter().println("Not verify! Back to sign up.");
+            error = "Vui lòng nhập đúng và đầy đủ thông tin. " +
+                    "Chú ý: Mật khẩu yêu cầu tối thiểu 6 kí tự.";
+            req.setAttribute("error", error);
+            req.getRequestDispatcher("/customer/home.jsp").forward(req, resp);
 
         }
 

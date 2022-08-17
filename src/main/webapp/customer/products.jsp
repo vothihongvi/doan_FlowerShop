@@ -11,6 +11,7 @@
 <%--<c:set var="myProduct" value="${requestScope.listP}" />--%>
 
 <section class="ftco-section">
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 mb-5 text-center">
@@ -35,10 +36,11 @@
             %>
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="<%=request.getContextPath()%>/detail?pid=<%=p.getId()%>" class="img-prod"><img class="img-fluid"
+                    <a href="<%=request.getContextPath()%>/detail?pid=<%=p.getId()%>" class="img-prod"><img
+                            class="img-fluid"
                     <%--                                                                          hình ảnh sp--%>
-                                                                              src="<%=p.getImage()%>"
-                                                                              alt="Colorlib Template">
+                            src="<%=p.getImage()%>"
+                            alt="Colorlib Template">
                         <span class="status"><%=status%></span>
                         <div class="overlay"></div>
                     </a>
@@ -57,15 +59,13 @@
                         <!--                        phần 3 icon nổi lên khi hoover vào sản phẩm-->
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="detailproduct.jsp"
+                                <a href="<%=request.getContextPath()%>/detail?pid=<%=p.getId()%>"
                                    class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                     <span><i class="ion-ios-menu"></i></span>
                                 </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                <a href="<%=request.getContextPath()%>/add-to-cart?pid=<%=p.getId()%>&context=shop"
+                                   class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
                                 </a>
                             </div>
                         </div>
@@ -74,17 +74,6 @@
             </div>
             <% }
             %>
-
-            <%--            BẮT ĐẦU JSP SẢN PHẨM--%>
-            <%--            <c:forEach items="${a.getAllProductByCategory()}" var="o">--%>
-            <%--              --%>
-            <%--            </c:forEach>--%>
-
-            <%--            KẾT THÚC JSP SẢN PHẨM--%>
-
-
         </div>
-
-
     </div>
 </section>

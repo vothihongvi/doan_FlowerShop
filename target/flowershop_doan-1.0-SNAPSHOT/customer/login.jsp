@@ -19,7 +19,7 @@
 
             <!--        begin body modal-->
             <div class="cart-total modal-body" style="margin: auto; border: none">
-                <form action="../login" method="post" class="info">
+                <form action="<%=request.getContextPath()%>/login" method="post" class="info">
                     <div class="form-group">
                         <label for="phone" style="color: #0b0b0b">Số điện thoại</label>
                         <input type="phone" name="phone" id="phone" class="form-control text-left px-3"

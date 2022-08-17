@@ -95,7 +95,6 @@ public class ProductDao {
     }
 
 
-
     public Product getAllProductByProductID(int id) {
 
         String query = "SELECT * FROM product WHERE id= ? ";

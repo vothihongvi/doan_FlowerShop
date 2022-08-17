@@ -1,10 +1,17 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.flowershop_doan.bean.Product" %>
 <%@ page import="com.example.flowershop_doan.dao.ProductDao" %>
+<%@ page import="com.example.flowershop_doan.bean.Cart" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="taglib.jsp" %>
 <jsp:useBean id="a" class="com.example.flowershop_doan.dao.ProductDao" scope="request"></jsp:useBean>
+
+<c:set var="cart" value="${sessionScope.cart}"></c:set>
+<% String errorMessage = (String) request.getAttribute("error"); %>
+<%--<% String classActive = (String) request.getAttribute("active"); %>--%>
+
+
 <html>
 <head>
     <title>Trang chủ</title>
@@ -34,7 +41,6 @@
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/icomoon.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/dist/pagination.css">
 
 
     <style>
@@ -52,9 +58,38 @@
         }
     </style>
 </head>
+<%if (errorMessage != null) {%>
 
+<body class="goto-here modal-open">
+
+<div class="modal fade modal-form show" style="display: block;">
+    <%--    <%System.out.println(showClass + style);%>--%>
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Thông báo</h5>
+                </div>
+                <div class="modal-body">
+                    <span class="alert"><%=errorMessage%></span>
+<%--                    <span>*Note: Về trang chủ và thao tác lại</span>--%>
+                </div>
+                <div class="modal-footer">
+                    <a href="<%=request.getContextPath()%>/home" type="button" class="btn btn-secondary">➦ Về trang chủ</a>
+
+                    <button  onclick="history.back()" type="button" class="btn  btn-primary" data-dismiss="modal">Ok, tiếp tục!</button>
+
+                </div>
+            </div>
+        </div>
+</div>
+<%}%>
+
+<%if (errorMessage ==null || errorMessage.equals("")) {%>
 <body class="goto-here">
+
 <c:set var="auth" value="${sessionScope.auth}"></c:set>
+<%--<c:set var="cart" value="${sessionScope.cart}"></c:set>--%>
+
 
 <%--header--%>
 <%@ include file="header.jsp" %>
@@ -205,16 +240,14 @@
                                 <!--                        phần 3 icon nổi lên khi hoover vào sản phẩm-->
                                 <div class="bottom-area d-flex px-3">
                                     <div class="m-auto d-flex">
-                                        <a href="detailproduct.jsp"
+                                        <a href="<%=request.getContextPath()%>/detail?pid=<%=p.getId()%>"
                                            class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                             <span><i class="ion-ios-menu"></i></span>
                                         </a>
-                                        <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                        <a href="<%=request.getContextPath()%>/add-to-cart?pid=<%=p.getId()%>&context=home" class="buy-now d-flex justify-content-center align-items-center mx-1">
                                             <span><i class="ion-ios-cart"></i></span>
                                         </a>
-                                        <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                            <span><i class="ion-ios-heart"></i></span>
-                                        </a>
+
                                     </div>
                                 </div>
                             </div>
@@ -353,6 +386,8 @@
 <%--Quick consultation (tư vấn nhanh)--%>
 <%@ include file="footer.jsp" %>
 
+<%}%>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
@@ -370,12 +405,9 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="assets/js/google-map.js"></script>
 <script src="assets/js/main.js"></script>
-<script src="https://pagination.js.org/dist/2.1.5/pagination.js"></script>
+<script>
 
-<script type="text/javascript">
-    $('#page').Pa
 </script>
-
 
 </body>
 </html>

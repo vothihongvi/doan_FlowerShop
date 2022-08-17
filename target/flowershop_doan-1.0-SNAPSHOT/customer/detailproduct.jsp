@@ -2,8 +2,8 @@
 <%@include file="taglib.jsp" %>
 <%@ page import="com.example.flowershop_doan.bean.Product" %>
 <%@ page import="com.example.flowershop_doan.dao.ProductDao" %>
-<%--<c:import url="/detail"/>--%>
-<%--<c:set var="detailProduct" value="${requestScope.detail}"/>--%>
+<c:set var="cart" value="${sessionScope.cart}"></c:set>
+
 <html>
 <head>
     <title>Chi tiết</title>
@@ -44,66 +44,54 @@
 <!--CHI TIẾT SẢN PHẨM-->
 <section class="ftco-section">
     <%
-       Product p = (Product) request.getAttribute("product");
-       String status = (String) request.getAttribute("status");
+        Product p = (Product) request.getAttribute("product");
+        String status = (String) request.getAttribute("status");
 
     %>
-        <div class="container">
+    <div class="container">
 
-            <div class="row">
-                <div class="col-lg-6 mb-5 ftco-animate">
-<%--                    https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg--%>
-                    <a href="#"
-                       class="image-popup"><img
-                            src="<%=p.getImage()%>"
-                            class="img-fluid" alt="Colorlib Template"></a>
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <%--                    https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg--%>
+                <a href="#"
+                   class="image-popup"><img
+                        src="<%=p.getImage()%>"
+                        class="img-fluid" alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <h3><%=p.getName()%>
+                </h3>
+                <div class="rating d-flex">
+                    <p class="text-left">
+                        <a href="#" class="mr-2" style="color: #000;"><%=p.getStatus()%> <span style="color: #bbb;">Đã bán </span></a>
+                    </p>
                 </div>
-                <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                    <h3><%=p.getName()%></h3>
-                    <div class="rating d-flex">
-                        <p class="text-left">
-                            <a href="#" class="mr-2" style="color: #000;"><%=p.getStatus()%> <span style="color: #bbb;">Đã bán </span></a>
+                <p class="price"><span><%=p.getPriceSell()%>đ</span></p>
+                <p><%=p.getDescription()%><br>
+
+                </p>
+                <div class="row mt-4">
+
+                    <div class="w-100"></div>
+                    <div class="input-group col-md-6 d-flex mb-3 price-dc" style="text-decoration: line-through;">
+	             Giá gốc : <%=p.getPriceOld()%>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-md-12">
+                        <p style="color: #000;">Tình trạng: <%=status%>
                         </p>
                     </div>
-                    <p class="price"><span><%=p.getPriceSell()%>đ</span></p>
-                    <p><%=p.getDescription()%><br>
-<%--                        + Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)<br>--%>
-<%--                        + Chậu thông điệp + trang trí: 1 bộ <br>--%>
-<%--                        Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình <br>--%>
+                </div>
+                <div class="d-flex">
+                    <p><a href="<%=request.getContextPath()%>/add-to-cart?pid=<%=p.getId()%>&context=cart" class="btn btn-outline-success  py-3 px-5 mr-4">Thêm
+                        Vào Giỏ</a></p>
+                    <p><a href="<%=request.getContextPath()%>/cart" class="btn  btn-success py-3 px-5 "
+                    >Mua Ngay</a></p>
 
-                    </p>
-                    <div class="row mt-4">
-
-                        <div class="w-100"></div>
-                        <div class="input-group col-md-6 d-flex mb-3">
-	             	<span class="input-group-btn mr-2">
-	                	<button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-	                   <i class="ion-ios-remove"></i>
-	                	</button>
-	            		</span>
-                            <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1"
-                                   min="1" max="100">
-                            <span class="input-group-btn ml-2">
-	                	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-	                     <i class="ion-ios-add"></i>
-	                 </button>
-	             	</span>
-                        </div>
-                        <div class="w-100"></div>
-                        <div class="col-md-12">
-                            <p style="color: #000;">Tình trạng: <%=status%></p>
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <p><a href="#" class="btn btn-outline-success  py-3 px-5 mr-4">Thêm
-                            Vào Giỏ</a></p>
-                        <p><a href="cart.jsp" class="btn  btn-success py-3 px-5 "
-                        >Mua Ngay</a></p>
-
-                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
 </section>
 

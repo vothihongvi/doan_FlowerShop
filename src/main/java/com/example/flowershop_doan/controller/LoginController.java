@@ -26,14 +26,23 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String phone = request.getParameter("phone");
         String pass = request.getParameter("pass");
+        String error = "";
         if (validateForm(phone, pass)) {
-        User user = UserService.getInstance().checkLogin(phone, pass);
-            //set session
-            HttpSession session = request.getSession();
-            session.setAttribute("auth", user);
-            response.sendRedirect("home");
+            User user = UserService.getInstance().checkLogin(phone, pass);
+            if (user == null) {
+                error = "Số điện thoại của bạn hoặc Mật khẩu không đúng, vui lòng thử lại";
+                request.setAttribute("error", error);
+                request.getRequestDispatcher("/customer/home.jsp").forward(request, response);
+            } else {
+                HttpSession session = request.getSession();
+                session.setAttribute("auth", user);
+                response.sendRedirect("home");
+            }
+
         } else {
-            response.getWriter().println("Not verify! Back to sign up.");
+            error = "Vui lòng nhập đúng và đầy đủ thông tin";
+            request.setAttribute("error", error);
+            request.getRequestDispatcher("/customer/home.jsp").forward(request, response);
 
         }
     }

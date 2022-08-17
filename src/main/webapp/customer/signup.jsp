@@ -46,9 +46,8 @@
                                    class="form-control text-left px-3"
                                    placeholder="Nhập lại mật khẩu">
                         </div>
-
                         <div style="text-align: center" id="signup">
-                            <button  type="submit" class="btn btn-primary py-3 px-4"
+                            <button type="submit" class="btn btn-primary py-3 px-4"
                                     style="margin-top: 32px">Đăng
                                 ký
                             </button>

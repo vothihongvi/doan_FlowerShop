@@ -13,8 +13,7 @@
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end"
                              style="background-image: url(${ca.image});">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0 text-white">
-                                        ${ca.name}</h2>
+                                <h2 class="mb-0 text-white">${ca.name}</h2>
                             </div>
                         </div>
                     </a>
