@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="../customer/taglib.jsp" %>
+<jsp:useBean id="a" class="com.example.flowershop_doan.dao.ProductDao" scope="request"></jsp:useBean>
 
 <html>
 <head>
@@ -55,7 +56,8 @@
                             </div>
                             <div class="table-data__tool-right">
                                 <a href="#">
-                                    <button style="padding: 12px" id="show-add" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                    <button style="padding: 12px" id="show-add"
+                                            class="au-btn au-btn-icon au-btn--green au-btn--small">
                                         <li class="zmdi zmdi-plus">Thêm sản phẩm</li>
                                     </button>
                                 </a>
@@ -76,208 +78,51 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="tr-shadow">
-                                    <td class="align-middle">SP001</td>
-                                    <td>
-                                        <div class="img-40"><img
-                                                src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                                alt="Colorlib Template"></div>
-                                    </td>
-                                    <td class="desc">Hoa Violet châu Phi</td>
-                                    <td>600.00đ</td>
-                                    <td>500.000đ</td>
-                                    <td>Hoa Sinh nhật</td>
-                                    <td><span class="status--process">Còn hàng</span></td>
-                                    <td>
-                                        <div class="table-data-feature">
+                                <c:forEach items="${a.allProduct}" var="ca">
 
-                                            <button id="show-edit" class="item" data-toggle="tooltip"
-                                                    data-placement="top"
-                                                    title="Chỉnh sửa sản phẩm">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button type="button" class="item" data-placement="top"
-                                                    data-toggle="modal" data-target="#exampleModalCenter"
-                                                    title="Xóa sản phẩm">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button id="show-detail" class="item" data-toggle="tooltip"
-                                                    data-placement="top"
-                                                    title="Xem mô tả sản phẩm">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="spacer"></tr>
-                                <tr class="tr-shadow">
-                                    <td class="align-middle">SP002</td>
-                                    <td>
-                                        <div class="img-40"><img
-                                                src="https://tools.dalathasfarm.com/public/products/DRP6/DRP64AK112/AA0_6481wm_800x800.jpg"
-                                                alt="Colorlib Template"></div>
-                                    </td>
-                                    <td class="desc">Hoa Giáng sinh đỏ</td>
-                                    <td>600.00đ</td>
-                                    <td>500.000đ</td>
-                                    <td>Hoa Sinh nhật</td>
-                                    <td>
-                                        <span class="status--denied">Hết hàng</span>
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
+                                    <tr class="tr-shadow">
+                                        <td class="align-middle">${ca.id}</td>
+                                        <td>
+                                            <div class="img-40"><img
+                                                    src="${ca.image}"
+                                                    alt="Colorlib Template"></div>
+                                        </td>
+                                        <td class="desc">${ca.name}</td>
+                                        <td>${ca.priceOld}đ</td>
+                                        <td>${ca.priceSell}đ</td>
+                                        <td>${ca.categoryId}</td>
+                                        <td><span class="status--process">${ca.status!=0?"Còn hàng": "Hết hàng"}</span>
+                                        </td>
+                                        <td>
+                                            <div class="table-data-feature">
+                                                <a href="<%=request.getContextPath()%>/admin/update-product.jsp?pid=${ca.id}">
+                                                    <button id="show-edit" class="item" data-toggle="tooltip"
+                                                            data-placement="top"
+                                                            title="Chỉnh sửa sản phẩm">
+                                                        <i class="zmdi zmdi-edit"></i>
+                                                    </button>
+                                                </a>
 
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa sản phẩm">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa sản phẩm">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem mô tả sản phẩm">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="spacer"></tr>
-                                <tr class="tr-shadow">
-                                    <td class="align-middle">SP001</td>
-                                    <td>
-                                        <div class="img-40"><img
-                                                src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                                alt="Colorlib Template"></div>
-                                    </td>
-                                    <td class="desc">Hoa Violet châu Phi</td>
-                                    <td>600.00đ</td>
-                                    <td>500.000đ</td>
-                                    <td>Hoa Sinh nhật</td>
-                                    <td>
-                                        <span class="status--process">Còn hàng</span>
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
+                                                <a href="../delete-product?pid=${ca.id}" style="margin-left: 4px">
+                                                    <button type="button" class="item" data-placement="top"
+                                                            data-toggle="modal" data-target="#exampleModalCenter"
+                                                            title="Xóa sản phẩm">
+                                                        <i class="zmdi zmdi-delete"></i>
 
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa sản phẩm">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa sản phẩm">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem mô tả sản phẩm">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="spacer"></tr>
-                                <tr class="tr-shadow">
-                                    <td class="align-middle">SP001</td>
-                                    <td>
-                                        <div class="img-40"><img
-                                                src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                                alt="Colorlib Template"></div>
-                                    </td>
-                                    <td class="desc">Hoa Violet châu Phi</td>
-                                    <td>600.00đ</td>
-                                    <td>500.000đ</td>
-                                    <td>Hoa Sinh nhật</td>
-                                    <td>
-                                        <span class="status--process">Còn hàng</span>
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
+                                                    </button>
+                                                </a>
 
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa sản phẩm">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa sản phẩm">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem mô tả sản phẩm">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="spacer"></tr>
-                                <tr class="tr-shadow">
-                                    <td class="align-middle">SP001</td>
-                                    <td>
-                                        <div class="img-40"><img
-                                                src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                                alt="Colorlib Template"></div>
-                                    </td>
-                                    <td class="desc">Hoa Violet châu Phi</td>
-                                    <td>600.00đ</td>
-                                    <td>500.000đ</td>
-                                    <td>Hoa Sinh nhật</td>
-                                    <td>
-                                        <span class="status--process">Còn hàng</span>
-                                    </td>
-                                    <td>
-                                        <div class="table-data-feature">
-
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa sản phẩm">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa sản phẩm">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem mô tả sản phẩm">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="spacer"></tr>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="spacer"></tr>
+                                </c:forEach>
 
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <ul class="pagination">
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">...</a></li>
-                    <li>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    <li>
-                    </li>
-                </ul>
             </div>
         </section>
         <!-- END DATA TABLE-->
@@ -309,247 +154,65 @@
 
             <!--        begin body modal-->
             <div class="cart-total modal-body" style="margin: auto; border: none">
-                <div class="form-group">
-                    <label style="color: #0b0b0b">Thêm ID</label>
-                    <input type="text" id="id-add" style="font-size: 0.8rem"
-                           class="form-control text-left px-3"
-                           placeholder="Nhập ID">
-                </div>
-                <form action="#" class="info">
 
+                <form action="../add-product" method="POST" class="info">
                     <div class="form-group">
                         <label style="color: #0b0b0b; float: left">Thêm hình ảnh</label>
-                        <!--                        <textarea class="form-control" id="message-text"></textarea>-->
-                        <input type="image" id="img-add" src="img/add.jpg"
-                               style=" width: 100px;height: 100px; float: left"
+                        <input type="text" name="image" id="img-add"
+                               class="form-control text-left px-3"
                         >
-                        <input type="file" class="form-control-file" id="hinhAnh" value="Image" accept="image/*">
-                        <!--                        <hr>-->
-                        <!--                        <label for="tenDanhMuc" class="col-form-label">Thay tên :</label>-->
-
-
                     </div>
                     <div class="form-group">
                         <label style="color: #0b0b0b">Thêm tên sản phẩm</label>
-                        <input type="text" id="name-add" style="font-size: 0.8rem"
+                        <input type="text" name="name" id="name-add" style="font-size: 0.8rem"
                                class="form-control text-left px-3"
                                placeholder="Nhập tên sản phẩm">
                     </div>
                     <div class="form-group">
                         <label style="color: #0b0b0b">Thêm giá gốc</label>
-                        <input type="text" id="price-org-add" style="font-size: 0.8rem"
+                        <input type="text" name="price-old" id="price-org-add" style="font-size: 0.8rem"
                                class="form-control text-left px-3"
                                placeholder="Nhập giá gốc">
                     </div>
                     <div class="form-group">
                         <label style="color: #0b0b0b">Thêm giá bán</label>
-                        <input type="text" id="price-sell-add" style="font-size: 0.8rem"
+                        <input type="text" name="price-sell" id="price-sell-add" style="font-size: 0.8rem"
                                class="form-control text-left px-3"
                                placeholder="Nhập giá bán">
                     </div>
                     <div class="form-group">
-                        <form action="/action_page.php">
-                            <label> Chọn danh mục </label>
-                            <select name="danhmuc" id="dm">
-                                <option value="dm">Chọn danh mục</option>
-                                <option value="hsn">Hoa sinh nhật</option>
-                                <option value="hcb">Hoa chia buồn</option>
-                                <option value="hc">Hoa cưới</option>
-                                <option value="hcm">Hoa chúc mừng</option>
-                                <option value="hkt">Hoa khai trương</option>
-                                <option value="hty">Hoa tình yêu</option>
-                            </select>
-                        </form>
+                        <label> Chọn danh mục </label>
+                        <select name="danhmuc" id="dm">
+                            <c:forEach items="${a.allCategory}" var="ca">
+                                <option value="${ca.id}">${ca.name}</option>
+                            </c:forEach>
+
+                        </select>
 
                     </div>
-                    <div class="form-group">
-                        <form action="/action_page.php">
-                            <label> Thêm Trạng thái </label>
-                            <select name="stt" id="stt-add">
-                                <option value="ctt">Chọn trạng thái</option>
-                                <option value="ch">Còn hàng</option>
-                                <option value="hh">Hết hàng</option>
-
-                            </select>
-                        </form>
-
-                    </div>
-
                     <div class="form-group">
                         <label style="color: #0b0b0b">Thêm mô tả</label>
-                        <textarea type="text" id="mota-add" style="font-size: 0.8rem;text-align: left "
+                        <textarea type="text" name="mo-ta" id="mota-add" style="font-size: 0.8rem;text-align: left "
                                   class="form-control text-left px-3"
                                   rows="4">
                             </textarea>
 
                     </div>
+
+                    <div style="text-align: center">
+                        <div style="margin-top: 32px">
+                            <button type="submit" class="btn btn-primary py-3 px-4">Thêm</button>
+                        </div>
+
+                    </div>
+                    <!--        end body modal-->
                 </form>
 
-                <div style="text-align: center">
-                    <div style="margin-top: 32px"><a href="index.html" class="btn btn-primary py-3 px-4">Thêm</a></div>
-
-                </div>
-                <!--        end body modal-->
             </div>
         </div>
     </div>
 </div>
 <!--end modal add item-->
-
-<!--begin modal edit item-->
-<div class="modal fade modal-form" id="form-edit">
-    <div class="modal-dialog ">
-        <div class="modal-content" style="border: none">
-            <!--        begin modal-header-->
-            <div style="background-color: #82ae46;">
-                <div class="modal-header" style="border: none">
-                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
-                       style="font-weight: 100;">&times;</a>
-                </div>
-                <div class="text-center" style="padding-bottom: 16px">
-                    <h4 style="text-transform: uppercase;color: white">Chỉnh sửa sản phẩm</h4>
-                </div>
-            </div>
-            <!--        end modal-header-->
-
-            <!--        begin body modal-->
-            <div class="cart-total modal-body" style="margin: auto; border: none">
-
-                <form action="#" class="info">
-                    <div class="form-group">
-                        <label style="color: #0b0b0b">Hình ảnh</label>
-                        <br>
-                        <input type="image" id="img-edit"
-                               src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                               style=" width: 100px;height: 100px;"
-                        >
-                        <input type="file" class="form-control-file" id="hinhAnh-edit" value="Image" accept="image/*">
-                    </div>
-                    <div class="form-group">
-                        <label style="color: #0b0b0b">Tên sản phẩm</label>
-                        <input type="text" id="name-edit" style="font-size: 0.8rem"
-                               class="form-control text-left px-3"
-                               value="Hoa Violet châu Phi">
-                    </div>
-                    <div class="form-group">
-                        <label style="color: #0b0b0b">Giá gốc</label>
-                        <input type="text" id="price-org-edit" style="font-size: 0.8rem"
-                               class="form-control text-left px-3"
-                               value="600.00đ">
-                    </div>
-                    <div class="form-group">
-                        <label style="color: #0b0b0b">Giá bán</label>
-                        <input type="text" id="price-sell-edit" style="font-size: 0.8rem"
-                               class="form-control text-left px-3"
-                               value="500.00đ">
-                    </div>
-                    <div class="form-group">
-                        <form action="/action_page.php">
-                            <label> Chọn danh mục </label>
-                            <select name="danhmuc" id="dm-edit">
-                                <option value="hsn">Hoa sinh nhật</option>
-                                <option value="hcb">Hoa chia buồn</option>
-                                <option value="hc">Hoa cưới</option>
-                                <option value="hcm">Hoa chúc mừng</option>
-                                <option value="hkt">Hoa khai trương</option>
-                                <option value="hty">Hoa tình yêu</option>
-                            </select>
-                        </form>
-
-                    </div>
-                    <div class="form-group">
-                        <form action="/action_page.php">
-                            <label> Trạng thái </label>
-                            <select name="stt" id="stt-edit">
-                                <option value="ctt">Chọn trạng thái</option>
-                                <option value="ch">Còn hàng</option>
-                                <option value="hh">Hết hàng</option>
-
-                            </select>
-                        </form>
-
-                    </div>
-                    <div class="form-group">
-                        <label style="color: #0b0b0b">Mô tả</label>
-
-                        <textarea type="text" id="mota-edit" style="font-size: 0.8rem;text-align: left "
-                                  class="form-control text-left px-3"
-                                  rows="4">Sản phẩm bao gồm:
-    + Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)
-   + Chậu thông điệp + trang trí: 1 bộ
-   Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình
-                            </textarea>
-
-                    </div>
-                </form>
-
-                <div style="text-align: center">
-                    <div style="margin-top: 32px"><a href="index.html" class="btn btn-primary py-3 px-4">Lưu</a></div>
-
-                </div>
-                <!--        end body modal-->
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--begin modal edit item-->
-<div class="modal fade modal-form" id="form-detail">
-    <div class="modal-dialog ">
-        <div class="modal-content" style="border: none">
-            <!--        begin modal-header-->
-            <div style="background-color: #82ae46;">
-                <div class="modal-header" style="border: none">
-                    <a type="button" class="close btn-outline-warning text-white" data-dismiss="modal"
-                       style="font-weight: 100;">&times;</a>
-                </div>
-                <div class="text-center" style="padding-bottom: 16px">
-                    <h4 style="text-transform: uppercase;color: white">Mô tả sản phẩm</h4>
-                </div>
-            </div>
-            <!--        end modal-header-->
-
-            <!--        begin body modal-->
-            <div class="cart-total modal-body" style="margin: auto; border: none">
-                <div class="form-group">
-                    <label style="color: #0b0b0b"> Chi tiết sản phẩm</label>
-                    <div type="text" id="detail" style="font-size: 0.8rem;"
-                         class="form-control text-left px-3">
-                        <br>Sản phẩm bao gồm:
-                        <br>+ Hoa Violet Châu Phi: 1 chậu (màu ngẫu nhiên)
-                        <br>+ Chậu thông điệp + trang trí: 1 bộ
-                        <br>Lưu ý: Chậu sứ thông điệp sẽ được giao ngẫu nhiên theo mẫu trong hình
-
-                    </div>
-
-                    <!--        end body modal-->
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--Begin modal xóa sản phẩm-->
-<div class="modal fade modal-form" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Xóa Sản Phẩm</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <span> Bạn có chắc muốn xóa sản phẩm này!</span>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--End modal xóa sản phẩm///////-->
 
 
 
@@ -598,7 +261,7 @@
             editForm.modal('show');
         })
         // show form detailForm
-        $('#show-detail').click(function () {
+        $('.show-detail').click(function () {
             detailForm.modal('show');
         })
         /* end modals operation*/
@@ -616,3 +279,6 @@
 </script>
 </body>
 </html>
+
+
+
