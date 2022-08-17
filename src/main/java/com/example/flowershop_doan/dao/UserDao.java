@@ -41,56 +41,50 @@ public class UserDao {
     public User signup(String name, String phone, String pass) {
         User result = null;
         String queryString = "INSERT INTO user(name, phone, pass, createdAt, roleID) VALUES (?, ?, ?, ?, ?)";
-
-        try {
-            Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-            PreparedStatement preparedStatement = DBConnect.getInstance().getPrepareStatement(queryString);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, phone);
-            preparedStatement.setString(3, hashPassword(pass));
-            preparedStatement.setTimestamp(4, timestamp);
-            preparedStatement.setInt(5, RoleDao.getInstance().getRoleCustomer());
-
-            if (preparedStatement.executeUpdate() == 1)
-                result = new User(name, phone, pass, timestamp, RoleDao.getInstance().getRoleCustomer());
-            return result;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (findUser(phone) != null) {
             return null;
-        }
-    }
+        } else {
+            try {
+                Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+                PreparedStatement preparedStatement = DBConnect.getInstance().getPrepareStatement(queryString);
+                preparedStatement.setString(1, name);
+                preparedStatement.setString(2, phone);
+                preparedStatement.setString(3, hashPassword(pass));
+                preparedStatement.setTimestamp(4, timestamp);
+                preparedStatement.setInt(5, RoleDao.getInstance().getRoleCustomer());
 
-    public User checkLogin(String phone, String pass){
-        User result = null;
-        String queryString = "SELECT * FROM user INNER JOIN role ON user.roleID = role.id WHERE phone =?";
-        try {
-            PreparedStatement preparedStatement = DBConnect.getInstance().getPrepareStatement(queryString);
-            preparedStatement.setString(1, phone);
-            ResultSet rs = preparedStatement.executeQuery();
+                if (preparedStatement.executeUpdate() == 1)
+                    result = new User(name, phone, pass, timestamp, RoleDao.getInstance().getRoleCustomer());
+                return result;
 
-            if (rs.next()) {
-                result = new User();
-                result.setName(rs.getString(2));
-                result.setPhone(rs.getString(3));
-                result.setPass(rs.getString(4));
-                result.setCreateAt(rs.getTimestamp(5));
-                result.setRoleID(rs.getInt(6));
+            } catch (SQLException e) {
+                e.printStackTrace();
+                return null;
             }
-            if ((result != null && !result.getPhone().equals(phone)) || rs.next()) return null;
-            if (!result.getPass().equals(hashPassword(pass))) return null;
-            System.out.println(RoleDao.getInstance().getRoleCustomer());
-            if( result.getRoleID() != RoleDao.getInstance().getRoleCustomer()) return null;
-            return result;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
         }
+
 
     }
 
-    public User checkLoginAdmin(String phone, String pass){
+    public User checkLogin(String phone, String pass) {
+        User result = this.findUser(phone);
+        if (!result.getPass().equals(hashPassword(pass))) return null;
+        if (result.getRoleID() != RoleDao.getInstance().getRoleCustomer()) return null;
+        return result;
+
+
+    }
+
+    public User checkLoginAdmin(String phone, String pass) {
+        User result = this.findUser(phone);
+        if (!result.getPass().equals(hashPassword(pass))) return null;
+        if (result.getRoleID() != RoleDao.getInstance().getRoleAdmin()) return null;
+        return result;
+
+
+    }
+
+    public User findUser(String phone) {
         User result = null;
         String queryString = "SELECT * FROM user INNER JOIN role ON user.roleID = role.id WHERE phone =?";
         try {
@@ -109,15 +103,12 @@ public class UserDao {
             }
 
             if ((result != null && !result.getPhone().equals(phone)) || rs.next()) return null;
-            if (!result.getPass().equals(hashPassword(pass))) return null;
-            if( result.getRoleID() != RoleDao.getInstance().getRoleAdmin()) return null;
             return result;
 
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
-
     }
 
 }

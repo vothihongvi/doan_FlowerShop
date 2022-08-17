@@ -15,7 +15,6 @@ public class ServletDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pid = (int) Integer.parseInt(request.getParameter("pid"));
 
-
         Product p = ProductDao.getInstance().getAllProductByProductID(pid);
         String status = (p.getStatus() == 0) ? "Hết hàng": "Còn hàng";
         request.setAttribute("product", p);

@@ -1,5 +1,6 @@
 package com.example.flowershop_doan.controller;
 
+import com.example.flowershop_doan.bean.Cart;
 import com.example.flowershop_doan.bean.Product;
 import com.example.flowershop_doan.dao.ProductDao;
 
@@ -13,9 +14,18 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pageIndex =1;
+        Cart cart = null;
+        HttpSession session = request.getSession();
+        if (session.getAttribute("cart") == null) {
+            cart = new Cart();
+            session.setAttribute("cart", cart);
+        } else {
+            cart = (Cart) session.getAttribute("cart");
+        }
+
+        int pageIndex = 1;
         String getPageIndex = request.getParameter("page");
-        if (getPageIndex != null){
+        if (getPageIndex != null) {
             pageIndex = Integer.parseInt(getPageIndex);
         }
 
