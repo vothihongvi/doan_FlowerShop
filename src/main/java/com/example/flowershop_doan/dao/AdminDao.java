@@ -97,7 +97,7 @@ public class AdminDao {
             PreparedStatement ps = DBConnect.getInstance().getPrepareStatement(query);
             ps.setInt(1, id);
             ps.executeUpdate();
-            System.out.println("đã xóa_product");
+            System.out.println("đã xóa_category");
         } catch (Exception e) {
             e.printStackTrace();
         }
