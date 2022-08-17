@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@include file="../customer/taglib.jsp" %>
+<jsp:useBean id="a" class="com.example.flowershop_doan.dao.ProductDao" scope="request"></jsp:useBean>
 
 <html>
 <head>
@@ -76,165 +77,38 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td class="text-center align-middle">1</td>
-                                    <td class="text-center align-middle">Hoa sinh nhật</td>
-                                    <td class="text-center align-middle">
-                                        <img class="img-120"
-                                             src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                             alt="Colorlib Template">
-                                    </td>
-                                    <td class="align-middle text-center">100</td>
-                                    <td class="align-middle">
-                                        <div class="table-data-feature">
-                                            <button id="show-edit" type="button" class="item" data-toggle="modal" data-placement="top"
-                                                    data-target="#edit-form"
-                                                    title="Chỉnh sửa thông tin danh mục">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button type="button" class="item" data-placement="top"
-                                                    data-toggle="modal" data-target="#exampleModalCenter"
-                                                    title="Xóa danh mục">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button id="show-detail" type="button" class="item" data-toggle="modal" data-placement="top"
-                                                    data-target="#form-detail"
-                                                    title="Xem chi tiết danh mục">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center align-middle">1</td>
-                                    <td class="text-center align-middle">Hoa sinh nhật</td>
-                                    <td class="text-center align-middle">
-                                        <img class="img-120"
-                                             src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                             alt="Colorlib Template">
-                                    </td>
-                                    <td class="align-middle text-center">100</td>
-                                    <td class="align-middle">
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa thông tin danh mục">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa danh mục">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem chi tiết danh mục">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center align-middle">1</td>
-                                    <td class="text-center align-middle">Hoa sinh nhật</td>
-                                    <td class="text-center align-middle">
-                                        <img class="img-120"
-                                             src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                             alt="Colorlib Template">
-                                    </td>
-                                    <td class="align-middle text-center">100</td>
-                                    <td class="align-middle">
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa thông tin danh mục">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa danh mục">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem chi tiết danh mục">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center align-middle">1</td>
-                                    <td class="text-center align-middle">Hoa sinh nhật</td>
-                                    <td class="text-center align-middle">
-                                        <img class="img-120"
-                                             src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                             alt="Colorlib Template">
-                                    </td>
-                                    <td class="align-middle text-center">100</td>
-                                    <td class="align-middle">
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa thông tin danh mục">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa danh mục">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem chi tiết danh mục">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center align-middle">1</td>
-                                    <td class="text-center align-middle">Hoa sinh nhật</td>
-                                    <td class="text-center align-middle">
-                                        <img class="img-120"
-                                             src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                             alt="Colorlib Template">
-                                    </td>
-                                    <td class="align-middle text-center">100</td>
-                                    <td class="align-middle">
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa thông tin danh mục">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa danh mục">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem chi tiết danh mục">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center align-middle">1</td>
-                                    <td class="text-center align-middle">Hoa sinh nhật</td>
-                                    <td class="text-center align-middle">
-                                        <img class="img-120"
-                                             src="https://tools.dalathasfarm.com/public/products/1638/1638325734/p4u-(10)wm_800x800.jpg"
-                                             alt="Colorlib Template">
-                                    </td>
-                                    <td class="align-middle text-center">100</td>
-                                    <td class="align-middle">
-                                        <div class="table-data-feature">
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Chỉnh sửa thông tin danh mục">
-                                                <i class="zmdi zmdi-edit"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xóa danh mục">
-                                                <i class="zmdi zmdi-delete"></i>
-                                            </button>
-                                            <button class="item" data-toggle="tooltip" data-placement="top"
-                                                    title="Xem chi tiết danh mục">
-                                                <i class="zmdi zmdi-more"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <c:forEach items="${a.allCategory}" var="ca">
+
+                                    <tr>
+                                        <td class="text-center align-middle">${ca.id}</td>
+                                        <td class="text-center align-middle">${ca.name}</td>
+                                        <td class="text-center align-middle">
+                                            <img class="img-120"
+                                                 src="${ca.image}"
+                                                 alt="Colorlib Template">
+                                        </td>
+                                        <td class="align-middle text-center">${a.getAllProductByCategory(ca.id).size()}</td>
+                                        <td class="align-middle">
+                                            <div class="table-data-feature">
+                                                <button id="show-edit" type="button" class="item" data-toggle="modal" data-placement="top"
+                                                        data-target="#edit-form"
+                                                        title="Chỉnh sửa thông tin danh mục">
+                                                    <i class="zmdi zmdi-edit"></i>
+                                                </button>
+                                                <button type="button" class="item" data-placement="top"
+                                                        data-toggle="modal" data-target="#exampleModalCenter"
+                                                        title="Xóa danh mục">
+                                                    <i class="zmdi zmdi-delete"></i>
+                                                </button>
+                                                <button id="show-detail" type="button" class="item" data-toggle="modal" data-placement="top"
+                                                        data-target="#form-detail"
+                                                        title="Xem chi tiết danh mục">
+                                                    <i class="zmdi zmdi-more"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
 
 
                                 </tbody>
@@ -494,3 +368,6 @@
 
 </body>
 </html>
+
+
+
